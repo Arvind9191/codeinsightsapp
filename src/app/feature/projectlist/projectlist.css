@@ -1,0 +1,173 @@
+.hero{
+  background:linear-gradient(
+  90deg,
+  #ff6a2c,
+  #dbe5f3
+  );
+
+  text-align:center;
+  padding:20px;
+  font-family:'Times New Roman', Times, serif
+}
+ 
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container-fluid {
+  width: 100%;
+  padding: 20px;
+  background: #f5f7fb;
+}
+
+/* Hero Section */
+
+.hero {
+  text-align: center;
+  padding: 40px 20px;
+  margin-bottom: 30px;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  color: #0f172a;
+}
+
+.hero p {
+  margin-top: 10px;
+  color: #64748b;
+}
+
+/* Grid */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+/* Card */
+
+.project-card {
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,0,0,.08);
+  transition: 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+}
+
+/* Image */
+
+.project-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+/* Content */
+
+.project-content {
+  padding: 20px;
+}
+
+.project-content h3 {
+  color: #1e293b;
+  margin-bottom: 10px;
+}
+
+.technology {
+  color: #64748b;
+  margin-bottom: 10px;
+  min-height: 30px;
+}
+
+.price {
+  font-size: 15px;
+  font-weight: bold;
+  color: #2563eb;
+  margin-bottom: 10px;
+}
+
+/* Buttons */
+
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+.details-btn,
+.buy-btn {
+  flex: 1;
+  border: none;
+  padding: 6px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 400;
+  transition: .3s;
+}
+
+.details-btn {
+  background: #2563eb;
+  color: white;
+}
+
+.details-btn:hover {
+  background: #1d4ed8;
+}
+
+.buy-btn {
+  background: #16a34a;
+  color: white;
+}
+
+.buy-btn:hover {
+  background: #15803d;
+}
+
+/* Tablet */
+
+@media (max-width: 992px) {
+
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .project-image {
+    height: 200px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 576px) {
+
+  .container-fluid {
+    padding: 15px;
+  }
+
+  .hero {
+    padding: 20px 10px;
+  }
+
+  .hero h2 {
+    font-size: 1.6rem;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .project-image {
+    height: 180px;
+  }
+}

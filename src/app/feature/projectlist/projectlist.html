@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <section class="hero">
+        <h2>Project Library</h2>
+        <p>Explore Latest Hospital Management Projects</p>
+    </section>
+
+    <div class="project-grid">
+        @for(project of projects1; track project.id){
+        <div class="card">
+            <div class="card-body">
+                <div class="project-card">
+                    <img [src]="project.image" [alt]="project.title" class="project-image">
+                    <div class="project-content">
+                        <h6>{{ project.title }} Hospital</h6>
+                        <p class="technology">
+                            {{ project.technology }}
+                        </p>
+                        <div class="price">
+                            {{ project.price | currency:'INR':'symbol' }}
+                        </div>
+                        <div class="button-group">
+                            <button class="details-btn" (click)="viewDetails(project)">
+                                View Details
+                            </button>
+                            <button class="buy-btn" (click)="buynow(project)">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>

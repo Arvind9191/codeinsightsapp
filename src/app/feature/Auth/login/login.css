@@ -1,0 +1,17 @@
+.modal-bg
+{ background: rgba(0,0,0,0.5); }
+ .modal-header
+ { display:flex; justify-content:space-between; align-items:center; } 
+ .btnclose
+ { 
+    border:none;
+    color:white;
+    width:30px; 
+    height:30px; 
+    border-radius:50%; 
+    cursor:pointer; 
+    font-size:14px;
+} 
+ small{ color:red; display:block; } input.ng-invalid.ng-touched
+{ border:1px solid red; } 
+input.ng-valid.ng-touched{ border:1px solid green; }

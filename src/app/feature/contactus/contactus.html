@@ -1,0 +1,101 @@
+<div class="contact-container">
+  <div class="contact-info-panel">
+    <div class="brand-header">
+      <span class="brand-icon">📚</span>
+      <h2>ProjectLibrary Support</h2>
+    </div>
+    <p class="subtitle">Have questions about submitting a project, licensing, or managing your repository? Get in touch with our team.</p>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <span class="card-icon">📍</span>
+        <div class="card-text">
+          <h3>Main Campus Repository</h3>
+          <p>Tech Hub Boulevard, Suite 404<br>Innovation District</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <span class="card-icon">✉️</span>
+        <div class="card-text">
+          <h3>Email Us</h3>
+          <p>support&#64;projectlibrary.com</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <span class="card-icon">🕒</span>
+        <div class="card-text">
+          <h3>Review Hours</h3>
+          <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+        </div>
+      </div>
+    </div>
+  </div> 
+
+
+  <div class="contact-form-panel">
+    <h2>Send a Message</h2>
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input 
+          id="name" 
+          type="text" 
+          formControlName="name" 
+          placeholder="John Doe"
+          [class.error-field]="isFieldInvalid('name')" />
+        @if (isFieldInvalid('name')) {
+          <span class="error-msg">Name is required (minimum 2 characters).</span>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input 
+          id="email" 
+          type="email" 
+          formControlName="email" 
+          placeholder="you@example.com"
+          [class.error-field]="isFieldInvalid('email')" />
+        @if (isFieldInvalid('email')) {
+          <span class="error-msg">Please enter a valid email address.</span>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="subject">Reason for Inquiry</label>
+        <select id="subject" formControlName="subject">
+          <option value="general">General Inquiry</option>
+          <option value="submission">Project Submission Issue</option>
+          <option value="copyright">Copyright & Licensing</option>
+          <option value="partnership">Academic Partnership</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Your Message</label>
+        <textarea 
+          id="message" 
+          formControlName="message" 
+          rows="5" 
+          placeholder="Describe your query in detail..."
+          [class.error-field]="isFieldInvalid('message')"></textarea>
+        @if (isFieldInvalid('message')) {
+          <span class="error-msg">Message must be at least 10 characters long.</span>
+        }
+      </div>
+
+      <button type="submit" class="submit-btn">  
+          Submit Ticket 
+      </button>
+
+      @if (submitStatus === 'success') {
+        <div class="alert alert-success">✓ Your message was sent successfully! We'll reply soon.</div>
+      }
+      @if (submitStatus === 'error') {
+        <div class="alert alert-error">⚠ Failed to send message. Please try again.</div>
+      }
+    </form>
+  </div>
+</div>

@@ -1,0 +1,168 @@
+ 
+<div class="product-grid">
+  <!-- @for(project of projects; track project.id){ -->
+    <div class="card">
+        <div class="card-body">
+          <!-- https://www.youtube.com/embed/T_TsCkDqp2w -->
+            <div class="product-card">    
+             <iframe                  
+                src="https://www.youtube.com/embed/T_TsCkDqp2w"
+                frameborder="0"
+                allow="autoplay; 
+                encrypted-media"
+                allowfullscreen class="product-video">
+              </iframe>  
+              <div class="product-body">
+                <h3>Hospital</h3>
+                <p>.NET Framework</p>
+                <div class="price">100.00</div>
+                <div class="actions">
+                  <button class="details-btn">Show More</button>
+                  <button class="download-btn">Download</button>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+          <!-- https://www.youtube.com/embed/T_TsCkDqp2w -->
+            <div class="product-card">    
+             <iframe                  
+                src="https://www.youtube.com/embed/COGifdOP198?si=DNiAtaDZKevoJfxV"
+                frameborder="0"
+                allow="autoplay; 
+                encrypted-media"
+                allowfullscreen class="product-video">
+              </iframe>  
+              <div class="product-body">
+                <h3>Hospital</h3>
+                <p>.NET Framework</p>
+                <div class="price">100.00</div>
+                <div class="actions">
+                  <button class="details-btn">Show More</button>
+                  <button class="download-btn">Download</button>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+          <!-- https://www.youtube.com/embed/T_TsCkDqp2w -->
+            <div class="product-card">    
+             <iframe                  
+                src="https://www.youtube.com/embed/BxV9LEVsy1c?si=JBSBZw5BagDMmtBa"
+                frameborder="0"
+                allow="autoplay; 
+                encrypted-media"
+                allowfullscreen class="product-video">
+              </iframe>  
+              <div class="product-body">
+                <h3>Hospital</h3>
+                <p>.NET Framework</p>
+                <div class="price">100.00</div>
+                <div class="actions">
+                  <button class="details-btn">Show More</button>
+                  <button class="download-btn">Download</button>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+          <!-- https://www.youtube.com/embed/T_TsCkDqp2w -->
+            <div class="product-card">    
+             <iframe                  
+                src="https://www.youtube.com/embed/OXm4-3Er8po?si=zK2cjjC9ydRG-V9l"
+                frameborder="0"
+                allow="autoplay; 
+                encrypted-media"
+                allowfullscreen class="product-video">
+              </iframe>  
+              <div class="product-body">
+                <h3>Hospital</h3>
+                <p>.NET Framework</p>
+                <div class="price">100.00</div>
+                <div class="actions">
+                  <button class="details-btn">View Details</button>
+                  <button class="download-btn">Download</button>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+  <!-- } --> 
+
+
+   @for(project of projects1; track project.id){
+    <div class="card">
+        <div class="card-body">          
+            <div class="product-card">    
+             <img [src]="project.image" [alt]="project.title"  lass="product-video" />  
+              <div class="product-body">
+                <h3>{{project.title}} Hospital</h3>
+                <p>{{project.technology}}</p>
+                <div class="price">{{project.price | currency:'INR':'symbol'}}</div>
+                <div class="actions">
+                  <button class="details-btn" (click)="viewDetails(project)">View Details</button>
+                  <button class="download-btn" (click)="buynow(project)">Buy Now</button>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>    
+  }
+</div>  
+  
+ 
+
+
+
+
+<div class="course-page">
+  <!-- Banner -->
+  <section class="hero">
+    <h1>Available Technology</h1>
+    <p>Home > projects</p>
+  </section> 
+  <!-- Search Section -->
+  <section class="search-section">
+    <div class="search-content">
+      <div class="left-content">
+        <h4>Browse by Categories</h4>
+        <p>
+          Take the first step towards achieving your goals with our
+          comprehensive online technology.
+        </p>
+
+        <input
+          type="text"
+          placeholder="Search technology Name..."
+          (ngModel)="searchText">
+      </div>
+
+      <div class="right-content">
+        <img src="assets/images/student.png" alt="">
+      </div>
+    </div>
+  </section>
+
+  <!-- Course Cards -->
+  <section class="course-grid">
+    <div
+      class="course-card"
+      *ngFor="let course of filteredCourses()"
+      (click)="openCourse(course.route)"
+    > 
+      <!-- <img [src]="course.image"> -->
+       <i class="{{course.icon}}" style="font-size: 48px; color: #a71cd1;"></i>
+      <h5>{{course.name}}</h5> 
+    </div>
+  </section>
+</div>
+
+
+
+ 

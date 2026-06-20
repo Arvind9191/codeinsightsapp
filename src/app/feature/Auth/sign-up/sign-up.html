@@ -1,0 +1,58 @@
+<div class="modal-backdrop-overlay" >
+  <div class="custom-modal-box signup-dimensions" (click)="$event.stopPropagation()">    
+    <div class="custom-modal-header">
+      <h5 class="modal-title">Create new Account</h5>
+      <button type="button" class="custom-btn-close" (click)="close()">✖</button>
+    </div>
+
+    <div class="custom-modal-body">
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">        
+        <div class="form-field-group">
+          <label>First Name</label>
+          <input class="custom-form-control" type="text" formControlName="firstName" placeholder="Enter full name">
+          @if (signupForm.get('firstName')?.touched && signupForm.get('firstName')?.invalid) {
+            <span class="error-text">First name is required.</span>
+          }
+        </div>
+        <div class="form-field-group">
+          <label>Last Name</label>
+          <input class="custom-form-control" type="text" formControlName="lastName" placeholder="Enter full name">
+          @if (signupForm.get('lastName')?.touched && signupForm.get('lastName')?.invalid) {
+            <span class="error-text">Last name is required.</span>
+          }
+        </div>
+
+        <!-- <div class="form-field-group">
+          <label>Mobile No.</label>
+          <input class="custom-form-control" type="tel" formControlName="mobileno" placeholder="Enter mobile number">
+          @if (signupForm.get('mobileno')?.touched && signupForm.get('mobileno')?.invalid) {
+            <span class="error-text">Enter a valid mobile number.</span>
+          }
+        </div> -->
+
+        <div class="form-field-group">
+          <label>Email Address</label>
+          <input class="custom-form-control" type="email" formControlName="email" placeholder="Enter email address">
+          @if (signupForm.get('email')?.touched && signupForm.get('email')?.invalid) {
+            <span class="error-text">Enter a valid email address.</span>
+          }
+        </div>  
+        <div class="form-field-group">
+          <label>Password</label>
+          <input class="custom-form-control" type="password" formControlName="password" placeholder="Enter password">
+          @if (signupForm.get('password')?.touched && signupForm.get('password')?.invalid) {
+            <span class="error-text">Minimum 6 characters required.</span>
+          }
+        </div>
+
+        <div class="">
+            <p>Back to login <a class="m-2" routerLink="login" (click)="openLoginPopup()" >Login</a></p>
+          </div>
+        <div class="form-actions">
+          <button type="submit" class="submit-btn">Sign Up</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>

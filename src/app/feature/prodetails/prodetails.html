@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 mt-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="card-header">
+            <h5>Demo for this project</h5>
+          </div>
+          <div class="product-card">
+            <iframe src="https://www.youtube.com/embed/OXm4-3Er8po?si=zK2cjjC9ydRG-V9l" frameborder="0" allow="autoplay; 
+                encrypted-media" allowfullscreen class="product-video">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="fare-card">
+        <h2 class="fare-title">Fare Summary</h2>
+        <div class="fare-breakdown">
+          <div class="fare-row">
+            <button class="expand-btn" aria-label="Expand Taxes and Surcharges">
+              <span class="icon-plus"></span>
+              <span class="row-label">Taxes and Surcharges</span>
+            </button>
+            <span class="row-value">₹ 997</span>
+          </div>
+          <div class="fare-row">
+            <button class="expand-btn" aria-label="Expand Other Services">
+              <span class="icon-plus"></span>
+              <span class="row-label">Other Services</span>
+            </button>
+            <span class="row-value">₹ 257</span>
+          </div>
+          <div class="fare-row discount-row">
+            <button class="expand-btn" aria-label="Expand Discounts">
+              <span class="icon-plus"></span>
+              <span class="row-label">Discounts</span>
+            </button>
+            <span class="row-value green-text">- ₹ 285</span>
+          </div>
+        </div>
+        <hr class="divider" />
+        <div class="fare-total">
+          <span class="total-label">Total Amount</span>
+          <span class="total-value">₹ 10,518</span>
+        </div>
+        <div class="buy-now">
+          <button class="btnbuy  text-white" (click)="buynow()" >Buy Now</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+  
+  <div class="course-page">
+   <section class="hero">
+    <h1>About project</h1>    
+  </section> 
+    <section class="search-section">
+      @for (item of sections(); track item.id) {
+      <div class="accordion-item-group">
+        <button class="collapse-header" (click)="toggleSection(item.id)"
+          [attr.aria-expanded]="activeSectionId() === item.id">
+          <h4>{{ item.title }}</h4>
+          <span class="arrow-icon" [class.rotated]="activeSectionId() !== item.id">▼</span>
+        </button>
+        <div class="search-content-wrapper" [class.collapsed]="activeSectionId() !== item.id">
+            <div class="left-content">
+              <p class="pt-2 pb-1 ps-4 pe-4">{{ item.description }}</p>
+            </div> 
+        </div>
+      </div>
+      }
+    </section>
+  </div>
+</div>

@@ -1,0 +1,179 @@
+<section class="hero">
+
+  <div class="hero-content">
+    <h1>About ProjectLibrary</h1>
+
+    <p>
+      ProjectLibrary is a learning platform that provides
+      real-world projects, source code, documentation,
+      tutorials, and technology-based solutions for
+      students and developers.
+    </p>
+
+    <button class="btn-primary">
+      Explore Projects
+    </button>
+  </div>
+
+</section>
+
+<!-- Mission -->
+
+<section class="section">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Our Mission</h2>
+    </div>
+
+    <p class="text-center">
+      Our mission is to help students and developers
+      build practical skills through real-world projects,
+      tutorials, and source code examples.
+    </p>
+
+  </div>
+
+</section>
+
+<!-- Stats -->
+
+<section class="stats-section">
+
+  <div class="container">
+
+    <div class="stats-grid">
+
+      @for(stat of stats; track stat.title){
+
+      <div class="stat-card">
+        <h3>{{stat.count}}</h3>
+        <p>{{stat.title}}</p>
+      </div>
+
+      }
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- Features -->
+
+<section class="section">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Why Choose ProjectLibrary?</h2>
+    </div>
+
+    <div class="features-grid">
+
+      @for(feature of features; track feature.title){
+
+      <div class="feature-card">
+
+        <div class="feature-icon">
+          {{feature.icon}}
+        </div>
+
+        <h3>{{feature.title}}</h3>
+
+        <p>{{feature.description}}</p>
+
+      </div>
+
+      }
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- Vision -->
+
+<section class="vision-section">
+
+  <div class="container">
+
+    <div class="vision-content">
+
+      <div>
+        <h2>Our Vision</h2>
+
+        <p>
+          To become the most trusted platform for students,
+          developers, and professionals seeking practical
+          project-based learning.
+        </p>
+      </div>
+
+      <img
+      src="assets/about/vision.png"
+      alt="Vision">
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- Team -->
+
+<section class="section">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Our Team</h2>
+    </div>
+
+    <div class="team-grid">
+
+      @for(member of teamMembers; track member.name){
+
+      <div class="team-card">
+
+        <img
+        [src]="member.image"
+        [alt]="member.name">
+
+        <h3>{{member.name}}</h3>
+
+        <p>{{member.role}}</p>
+
+      </div>
+
+      }
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- Future Goals -->
+
+<section class="future-goals">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Future Goals</h2>
+    </div>
+
+    <ul>
+      <li>✔ 1000+ Live Projects</li>
+      <li>✔ AI Learning Modules</li>
+      <li>✔ Online Certifications</li>
+      <li>✔ Career Guidance Programs</li>
+      <li>✔ Industry-Level Training</li>
+    </ul>
+
+  </div>
+
+</section>

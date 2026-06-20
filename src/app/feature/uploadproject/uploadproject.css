@@ -1,0 +1,17 @@
+  small{
+    color:red;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  .btn-sm{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+  }
+  label{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+  }
+  h1,h2,h3,h4,h5,h6{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: green;
+  }

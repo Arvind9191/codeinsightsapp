@@ -1,0 +1,179 @@
+/* --- OVERLAY BACKDROP --- */
+.modal-backdrop-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(15, 23, 42, 0.45); 
+  backdrop-filter: blur(6px); 
+  
+  /* Strict centering engine */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  
+  /* Reset framework alignments */
+  text-align: left; 
+  margin: 0 !important;
+  padding: 0 !important;
+  
+  z-index: 99999; /* Kisi bhi header layer se hamesha upar rakhne ke liye */
+  animation: backdropFade 0.2s ease-out;
+}
+
+/* --- THE MODAL CONTAINER BOX --- */
+.custom-modal-box {
+  background-color: #ffffff; 
+  border-radius: 16px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #f1f5f9;
+  
+  /* Bootstrap template centering override overrides */
+  margin: auto !important; 
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+  transform: none !important;
+  
+  animation: modalSlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- DIMENSIONS SETTINGS (HEIGHT & WIDTH) --- */
+.signup-dimensions {
+  width: 460px;          /* Custom strict Width */
+  height: 590px;         /* Custom strict Height */
+  max-width: 92%;        /* Mobile Responsive compatibility */
+  max-height: 90vh;      /* Screen height overflow insurance */
+}
+
+/* --- HEADER DESIGN --- */
+.custom-modal-header {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f1f5f9;
+  background-color: #fafafa;
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  text-align: center;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.custom-btn-close {
+  background: transparent;
+  border: none;
+  font-size: 1.1rem;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.custom-btn-close:hover {
+  color: #ef4444;
+  background-color: #fee2e2;
+}
+
+/* --- SCROLLABLE CONTAINER BODY --- */
+.custom-modal-body {
+  padding: 1.5rem;
+  flex: 1;
+  overflow-y: auto;  
+  height: 400px; 
+}
+
+/* --- FORM ELEMENTS & DESIGN --- */
+.form-field-group {
+  margin-bottom: 1.15rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field-group label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #475569;
+  margin-bottom: 0.35rem;
+}
+
+.custom-form-control {
+  width: 100%; 
+  font-size: 0.95rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0px;
+  outline: none;
+  box-sizing: border-box;
+  color: #334155;
+  height: 35px;
+  padding: 8px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.custom-form-control:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* --- VALIDATION WARNING TEXT --- */
+.error-text {
+  color: #ef4444;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  font-weight: 400;
+}
+
+/* --- ACTION BUTTON SYSTEM --- */
+.form-actions {
+  margin-top: 1.5rem;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background-color: #1d4ed8;
+}
+
+.submit-btn:disabled {
+  background-color: #cbd5e1;
+  color: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* --- ANIMATIONS ENGINE --- */
+@keyframes backdropFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalSlideUp {
+  from {
+    transform: translateY(20px) scale(0.97);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}

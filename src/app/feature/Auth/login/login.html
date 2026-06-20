@@ -1,0 +1,35 @@
+<div class="modal fade show d-block modal-bg" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Welcome Login</h5><button type="button" class="btnclose" (click)="close()"> ✖ </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="mb-3"> 
+            <label>Email</label>
+             <input class="form-control" type="email" formControlName="email"
+              placeholder="Enter email"> <small
+              *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].errors?.['required']"> Email is
+              required </small> <small
+              *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].errors?.['email']"> Enter valid
+              email 
+            </small> 
+          </div>
+          <div class="mb-3"> <label>Password</label> <input class="form-control" type="password"
+              formControlName="password" placeholder="Enter password"> <small
+              *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].errors?.['required']">
+              Password is required </small> <small
+              *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].errors?.['minlength']">
+              Minimum 6 characters required </small>
+          </div> 
+          <div class="">
+            <p>Plese create new account <a class="m-2" routerLink="signup" (click)="opensignuppopup()" >Sign-Up</a></p>
+          </div>
+          <button type="submit" class="btn btn-primary w-100"> Login
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,144 @@
+/* Container Layout */
+.disclaimer-container {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  max-width: 850px;
+  margin: 40px auto;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+/* Header Styles */
+.disclaimer-header {
+  text-align: center;
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 24px;
+  margin-bottom: 32px;
+}
+
+.scale-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.disclaimer-header h1 {
+  font-size: 2.2rem;
+  color: #0f172a; /* Deep Slate Slate */
+  margin: 0 0 8px 0;
+  font-weight: 700;
+}
+
+.last-updated {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Alert/Notice Box */
+.notice-box {
+  background-color: #f8fafc;
+  border-left: 4px solid #475569;
+  padding: 16px 20px;
+  border-radius: 4px;
+  margin-bottom: 32px;
+}
+
+.notice-box p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #334155;
+  line-height: 1.5;
+}
+
+/* Content Sections */
+.disclaimer-content {
+  line-height: 1.7;
+}
+
+.disclaimer-section {
+  margin-bottom: 28px;
+}
+
+.disclaimer-section h2 {
+  font-size: 1.25rem;
+  color: #1e293b;
+  margin: 0 0 10px 0;
+  font-weight: 600;
+}
+
+.disclaimer-section p {
+  font-size: 1rem;
+  color: #475569;
+  margin: 0;
+  text-align: justify;
+}
+
+/* Footer Section */
+.disclaimer-footer {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid #e2e8f0;
+  text-align: center;
+}
+
+.disclaimer-footer p {
+  font-size: 0.95rem;
+  color: #64748b;
+  margin: 0 0 12px 0;
+}
+
+.contact-link {
+  display: inline-block;
+  color: #1e3a8a; /* Theme Blue */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.contact-link:hover {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+/* --- Responsive Layout Breakpoints --- */
+
+/* For Tablets (e.g., iPads) */
+@media (max-width: 768px) {
+  .disclaimer-container {
+    margin: 20px 16px;
+    padding: 24px;
+  }
+
+  .disclaimer-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .disclaimer-section p {
+    text-align: left; /* Better readability on medium screens */
+  }
+}
+
+/* For Small Mobile Devices */
+@media (max-width: 480px) {
+  .disclaimer-container {
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: none; /* Flattens design nicely on mobile screens */
+  }
+
+  .disclaimer-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .disclaimer-section h2 {
+    font-size: 1.1rem;
+  }
+
+  .disclaimer-section p, .notice-box p {
+    font-size: 0.9rem;
+  }
+}

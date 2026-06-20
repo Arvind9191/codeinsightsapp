@@ -1,0 +1,87 @@
+<div class="container mt-2">
+    <div class="row uploadbox col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Upload project</h5>
+            </div>
+            <div class="card-body cardbody">
+                <form [formGroup]="uploadprojectform" (ngSubmit)="onSubmit()">
+                    <div class="row mt-2 mb-2">
+                        <label class="form-lebel  col-md-2">Project Name</label>
+                        <div class="col-md-4">
+                            <input class="form-control" type="text" formControlName="projectname"
+                                placeholder="Enter project name">
+                            <small
+                                *ngIf="uploadprojectform.controls['projectname'].touched && uploadprojectform.controls['projectname'].errors?.['required']">
+                                Project name is required
+                            </small>
+                        </div>
+                        <label class="form-lebel  col-md-2">Title</label>
+                        <div class="col-md-4">
+                            <input class="form-control" type="text" formControlName="title"
+                                placeholder="Enter project title">
+                            <small
+                                *ngIf="uploadprojectform.controls['title'].touched && uploadprojectform.controls['title'].errors?.['required']">
+                                Title is required
+                            </small>
+                            <small
+                                *ngIf="uploadprojectform.controls['title'].touched && uploadprojectform.controls['title'].errors?.['title']">
+                                Enter valid title
+                            </small>
+                        </div>
+                    </div>
+                    <div class="row mt-2 mb-2">
+                        <label class="form-lebel  col-md-2">Project Price</label>
+                        <div class="col-md-4">
+                            <input type="number" class="form-control" formControlName="price"
+                                placeholder="Enter project price">
+                            <small
+                                *ngIf="uploadprojectform.controls['price'].touched && uploadprojectform.controls['price'].errors?.['required']">
+                                price name is required
+                            </small>
+                        </div>
+                    </div>
+                    <div class="row mt-2 mb-2">
+                        <label class="form-lebel  col-md-2">Project Thomble</label>
+                        <div class="col-md-4">
+                            <input type="file" class="form-control" formControlName="thomble"
+                                placeholder="Enter project thomble">
+                            <small
+                                *ngIf="uploadprojectform.controls['thomble'].touched && uploadprojectform.controls['thomble'].errors?.['required']">
+                                thomble name is required
+                            </small>
+                        </div>
+                        <label class="form-lebel  col-md-2">Upload Project</label>
+                        <div class="col-md-4">
+                            <input type="file" class="form-control" formControlName="upproject" accept=".zip"
+                                (change)="onFileSelect($event)" placeholder="Upload project">
+                            <small *ngIf="uploadprojectform.controls['upproject'].touched
+                                 && uploadprojectform.controls['upproject'].errors?.['required']">
+                                project name is required
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="row mt-2 mb-2">
+                        <label class="form-lebel  col-md-2">Demo Video</label>
+                        <div class="col-md-4">
+                            <input type="file" class="form-control" formControlName="demovideo"
+                               accept="video/*" (change)="onVideoSelect($event)" placeholder="Upload demo video">
+                            <small
+                                *ngIf="uploadprojectform.controls['demovideo'].touched && uploadprojectform.controls['demovideo'].errors?.['required']">
+                                upload demo video name.
+                            </small>
+                        </div> 
+                    </div>
+                    <div class="row mt-4 mb-2">
+                        <div class="col-md-3 offset-2">
+                            <button type="submit" class="btn btn-success w-100 btn-sm">
+                                Project Submit
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
