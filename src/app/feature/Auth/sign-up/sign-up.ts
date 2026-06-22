@@ -18,6 +18,7 @@ import {
 } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
 import { Projectservices } from '../../../core/apiservices/projectservices';
+import { AuthServices } from '../../../core/apiservices/AuthServices';
 
 @Component({
   selector: 'app-sign-up',
@@ -27,6 +28,7 @@ import { Projectservices } from '../../../core/apiservices/projectservices';
 })
 export class SignUp {
   signupForm: FormGroup;
+  auth:any = inject(AuthServices)
   constructor(
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<Login>,
@@ -38,7 +40,7 @@ export class SignUp {
       lastName: ['', Validators.required, Validators.minLength(3)],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      userrole: ['', [Validators.required, Validators.minLength(6)]],
+     // userrole: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
   onSubmit(): void {
@@ -46,8 +48,21 @@ export class SignUp {
       this.signupForm.markAllAsTouched();
       return;
     } else {
-      this.proservice.Signup(this.signupForm.value).subscribe({
+      debugger
+      let data = this.signupForm.value;
+         let   obje=    {
+  "firstName":data.firstName ,
+  "lastName":data.lastName,
+  "email": data.email,
+  "password":data.password,
+  "userrole": "user"
+}
+      this.auth.Signup(obje).subscribe({
         next: (response: any) => {
+
+
+
+
           console.log('API Success Response:', response);
           alert('Signup successful');
         },

@@ -1,0 +1,16 @@
+<div *ngIf="isEmailVerified" class="card">
+  <div class="circle">
+    <span class="check">&#10003;</span>
+  </div>
+  <h2>Email Verified</h2>
+  <p>Your email has been successfully verified.</p>
+</div>
+
+
+<div *ngIf="!isEmailVerified" class="unverified-container">
+  <div class="circle">
+    <span class="cross">&#10006;</span>
+  </div>
+  <h2>Email Not Verified</h2>
+  <p>Please verify your email to continue using all features.</p>
+</div>

@@ -1,0 +1,72 @@
+.settings-container {
+  margin: 20px;
+  max-width: 700px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+section {
+  margin-bottom: 25px;
+  padding: 15px;
+  background: #f9f9f9;       /* soft panel background */
+  border-radius: 6px;
+  border: 1px solid #e0e0e0; /* subtle border */
+}
+
+h3 {
+  font-size: 1.2rem;
+  color: #007bff;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input {
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0,123,255,0.4);
+  outline: none;
+}
+
+button {
+  width: fit-content;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+button:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  input, button {
+    width: 100%;
+  }
+}

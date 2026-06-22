@@ -1,0 +1,36 @@
+<!-- settings.component.html -->
+<div class="settings-container">
+  <h2>User Settings</h2>
+
+  <!-- Change Password -->
+  <section>
+    <h3>Change Password</h3>
+    <form [formGroup]="passwordForm" (ngSubmit)="changePassword()">
+      <input type="password" formControlName="oldPassword" placeholder="Old Password" />
+      <input type="password" formControlName="newPassword" placeholder="New Password" />
+      <input type="password" formControlName="confirmPassword" placeholder="Confirm Password" />
+      <button type="submit">Update Password</button>
+    </form>
+  </section>
+
+  <!-- Update Email -->
+  <section>
+    <h3>Update Email</h3>
+    <form [formGroup]="emailForm" (ngSubmit)="updateEmail()">
+      <input type="email" formControlName="email" placeholder="Enter New Email" />
+      <button type="submit">Update Email</button>
+    </form>
+  </section>
+
+  <!-- Verify Email -->
+  <section>
+    <h3>Verify Email</h3>
+    <div *ngIf="isEmailVerified; else notVerified">
+      ✅ Your email is verified.
+    </div>
+    <ng-template #notVerified>
+      ❌ Email not verified.
+      <button (click)="verifyEmail()">Send Verification Email</button>
+    </ng-template>
+  </section>
+</div>

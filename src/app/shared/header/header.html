@@ -16,8 +16,8 @@
       </ul>
     </nav> 
     <div class="right-actions-group">
-      <a routerLink="login" class="login-btn"(click)="openLoginPopup()" >Login</a>
-       <a routerLink="signup" class="login-btn"(click)="opensignuppopup()" >Sign-Up</a>
+      <a  class="login-btn"(click)="openLoginPopup()" >Login</a>
+       <a  class="login-btn"(click)="opensignuppopup()" >Sign-Up</a>
       <div class="profile-container" [class.dropdown-active]="isProfileOpen">
         <button class="profile-btn" (click)="toggleProfile($event)" aria-label="Toggle profile menu">
           <span class="profile-avatar">

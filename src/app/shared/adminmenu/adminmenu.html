@@ -1,7 +1,7 @@
  <header class="header">
   <div class="header-container"> 
     <div class="logo">
-     <a routerLink="home">Project Library</a>
+     <a routerLink="home">The Code Insights</a>
     </div> 
     <button class="menu-toggle" (click)="toggleMenu()" aria-label="Toggle navigation">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -17,8 +17,8 @@
       </ul>
     </nav> 
     <div class="right-actions-group">
-      <a routerLink="login" class="login-btn"(click)="openLoginPopup()" >Login</a>
-       <a routerLink="signup" class="login-btn"(click)="opensignuppopup()" >Sign-Up</a>
+      <a style="cursor: pointer;" class="login-btn"(click)="openLoginPopup()" >Login</a>
+       <!-- <a  style="cursor: pointer;" class="login-btn"(click)="opensignuppopup()" >Sign-Up</a> -->
       <div class="profile-container" [class.dropdown-active]="isProfileOpen">
         <button class="profile-btn" (click)="toggleProfile($event)" aria-label="Toggle profile menu">
           <span class="profile-avatar">
@@ -27,8 +27,8 @@
           <span class="profile-text">arvindkumarsarsawan</span>
         </button> 
         <ul class="profile-dropdown">
-          <li><a routerLink="#" class="dropdown-item">Settings</a></li>
-          <li><a routerLink="#" class="dropdown-item">Change Password</a></li>
+          <li><a routerLink="settings" class="dropdown-item">Settings</a></li>
+          <!-- <li><a routerLink="#" class="dropdown-item">Change Password</a></li> -->
           <li class="divider"></li>
           <li><a routerLink="#" class="dropdown-item logout-link">Logout</a></li>
         </ul>

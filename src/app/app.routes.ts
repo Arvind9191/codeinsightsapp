@@ -8,10 +8,13 @@ import { Contactus } from './feature/contactus/contactus';
 import { Aboutus } from './feature/aboutus/aboutus';
 import { Disclamer } from './feature/disclamer/disclamer';  
 import { Uploadproject } from './feature/uploadproject/uploadproject';
+import { EmailVerified } from './feature/Auth/email-verified/email-verified';
+import { EmailAuthGuard } from './core/Auth/email-verify';
+import { ErrorComponent } from './shared/error/error';
+import { NotFoundComponent } from './shared/not-found-component/not-found-component';
+import { Settings } from './feature/Auth/settings/settings';
 export const routes: Routes = [
-     {path:'' , component:Home},  
-     { path: '', redirectTo: '/login', pathMatch: 'full' },
-    
+    {path:'' , component:Home},      
     {path:'home' , component:Home},
     {path:'loader' , component:Loader},
     { path: '', component: Layout,children: [
@@ -22,7 +25,11 @@ export const routes: Routes = [
    {path:'projects' , component:Projectlist},
    {path:'contact' , component:Contactus},
    {path:'about' , component:Aboutus},
+   {path:'emailverified',component:EmailVerified , canActivate:[EmailAuthGuard]},
    {path:'disclamer' , component:Disclamer},  
-  {path: '**', redirectTo: '/login' },
+   {path:'error' , component:ErrorComponent},
+   {path:'pagenotfound',component:NotFoundComponent},
+   {path:'settings' , component:Settings},
+ {path:'**',component:NotFoundComponent}
    
 ];

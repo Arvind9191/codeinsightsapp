@@ -10,10 +10,5 @@ export class Projectservices {
   private http = inject(HttpClient);
   constructor(private httpclient: HttpClient) {}
 
-  Signup(data: any) {
-    debugger
-    alert('api request')
-    const fullurl = this.baseurl + Endpoint.signup;
-    return this.httpclient.post(fullurl, data);
-  }
+  
 }
