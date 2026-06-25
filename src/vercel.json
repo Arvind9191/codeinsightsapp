@@ -1,0 +1,9 @@
+{
+  "builds": [
+    { "src": "angular.json", "use": "@vercel/angular" }
+  ],
+  "outputDirectory": "dist/ProjectLibraryApp",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "browser/index.html" }
+  ]
+}
