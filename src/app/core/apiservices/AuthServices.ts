@@ -12,15 +12,20 @@ export class AuthServices {
   constructor(private http: HttpClient) {}
 
   Login(data: any) {
-    debugger
+
     const fullurl=this.baseurl+Endpoint.login;
     return this.http.post<ApiResponse>(fullurl,data)
   }
 
+
   Signup(data: any) {
-    debugger
-    alert('api request')
+
     const fullurl = this.baseurl + Endpoint.signup;
     return this.http.post(fullurl, data);
+  }
+
+  VerifyEmail(data:any){
+    const url = this.baseurl+Endpoint.verifyemail+`?userId=${data.userid}&token=${data.token}`;
+    return this.http.get(url);
   }
 }

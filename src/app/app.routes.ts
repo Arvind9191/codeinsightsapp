@@ -30,6 +30,7 @@ export const routes: Routes = [
    {path:'error' , component:ErrorComponent},
    {path:'pagenotfound',component:NotFoundComponent},
    {path:'settings' , component:Settings},
+   {path:'user' , loadChildren:()=>import('./feature/user/user-module').then(m=>m.UserModule)},
  {path:'**',component:NotFoundComponent}
    
 ];

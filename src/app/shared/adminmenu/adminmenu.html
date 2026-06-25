@@ -18,7 +18,7 @@
     </nav> 
     <div class="right-actions-group">
       <a style="cursor: pointer;" class="login-btn"(click)="openLoginPopup()" >Login</a>
-       <!-- <a  style="cursor: pointer;" class="login-btn"(click)="opensignuppopup()" >Sign-Up</a> -->
+       <a  style="cursor: pointer;" routerLink="./user" class="login-btn" >User Dashboard</a>
       <div class="profile-container" [class.dropdown-active]="isProfileOpen">
         <button class="profile-btn" (click)="toggleProfile($event)" aria-label="Toggle profile menu">
           <span class="profile-avatar">

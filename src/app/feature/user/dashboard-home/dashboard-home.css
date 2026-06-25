@@ -1,0 +1,130 @@
+
+.dashboard-container {
+  height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  background-color: #1e3a8a;
+  color: white;
+}
+
+.user-info {
+  text-align: center;
+  padding: 1rem;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* centers horizontally */
+  justify-content: center; /* centers vertically */
+  text-align: center;
+  color: white;
+  padding: 1rem;
+   min-height: 150px; /* ensures enough space for icon + text */
+}
+
+
+.stat-card mat-icon {
+  font-size: 25px;       /* bigger icon size */
+  line-height: 1;        /* prevents clipping */
+  margin-bottom: 0.5rem; /* spacing below icon */
+}
+/* .avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+} */
+
+.recent-purchases, .my-projects {
+  margin: 1rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.project-card {
+  padding: 1rem;
+}
+.dashboard-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Notifications left, Need Help right */
+  gap: 1rem;
+  margin: 1rem;
+}
+
+.notifications mat-card,
+.need-help mat-card {
+  height: 100%;
+}
+
+.notifications .notifications-chard{
+ padding: 5px;
+}
+
+.help-options {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.need-help .hepl-card{
+    padding: 5px;
+}
+
+.help-options button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .dashboard-sections {
+    grid-template-columns: 1fr; /* stack vertically on tablet/mobile */
+  }
+}
+
+
+
+.blue { background-color: #3b82f6; }
+.green { background-color: #10b981; }
+.orange { background-color: #f59e0b; }
+.purple { background-color: #8b5cf6; }
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 180px;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  mat-sidenav {
+    display: none;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
