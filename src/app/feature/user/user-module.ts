@@ -17,6 +17,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table';
 import { Usercomponent } from './usercomponent/usercomponent';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { MatFormField } from '@angular/material/form-field';
+import { MatLabel } from '@angular/material/form-field';
 @NgModule({
   declarations: [DashboardHome, Profile, Purchases, Projects, Settings, Usercomponent],
   imports: [
@@ -31,6 +35,11 @@ import { Usercomponent } from './usercomponent/usercomponent';
     MatButtonModule,
     MatCardModule,
     MatToolbarModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatFormField,
+    MatLabel
+    
   ],
 })
 export class UserModule {}

@@ -1,0 +1,84 @@
+<div class="dashboard-container">
+  <!-- Top summary cards -->
+  <div class="cards-grid">
+    <mat-card class="stat-card blue">
+      <h3>Total Sales</h3>
+      <p>{{ totalSales }}</p>
+      <small>+12% vs last month</small>
+    </mat-card>
+
+    <mat-card class="stat-card green">
+      <h3>Total Revenue</h3>
+      <p>{{ totalRevenue | currency:'USD' }}</p>
+      <small>Up 15% this month</small>
+    </mat-card>
+
+    <mat-card class="stat-card orange">
+      <h3>Active Projects</h3>
+      <p>{{ activeProjects }}</p>
+      <small>Ongoing Projects</small>
+    </mat-card>
+
+    <mat-card class="stat-card purple">
+      <h3>New Users</h3>
+      <p>{{ newUsers }}</p>
+      <small>↑ {{ usersThisMonth }} This Month</small>
+    </mat-card>
+  </div>
+
+  <!-- Analytics section -->
+  <div class="dashboard-content">
+    <!-- Sales Growth Chart -->
+    <mat-card>
+      <h3>Sales Growth Chart</h3>
+      <canvas baseChart
+              [datasets]="salesData"
+              [labels]="salesLabels"
+              [options]="chartOptions"
+              [legend]="true"
+              [type]="'line'">
+      </canvas>
+      <!-- <canvas baseChart [data]="barChartData" [options]="barChartOptions" [type]="'bar'"> </canvas> -->
+    </mat-card>
+
+    <!-- Top Selling Projects Table -->
+    <mat-card>
+      <h3>Top Selling Projects</h3>
+      <table mat-table [dataSource]="topProjects" class="mat-elevation-z2">
+
+        <!-- Rank Column -->
+        <ng-container matColumnDef="rank">
+          <th mat-header-cell *matHeaderCellDef> Rank </th>
+          <td mat-cell *matCellDef="let project"> {{ project.rank }} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Project Name </th>
+          <td mat-cell *matCellDef="let project"> {{ project.name }} </td>
+        </ng-container>
+
+        <!-- Tech Column -->
+        <ng-container matColumnDef="tech">
+          <th mat-header-cell *matHeaderCellDef> Technology </th>
+          <td mat-cell *matCellDef="let project"> {{ project.tech }} </td>
+        </ng-container>
+
+        <!-- Sales Column -->
+        <ng-container matColumnDef="sales">
+          <th mat-header-cell *matHeaderCellDef> Sales </th>
+          <td mat-cell *matCellDef="let project"> {{ project.sales }} </td>
+        </ng-container>
+
+        <!-- Revenue Column -->
+        <ng-container matColumnDef="revenue">
+          <th mat-header-cell *matHeaderCellDef> Revenue </th>
+          <td mat-cell *matCellDef="let project"> {{ project.revenue | currency:'USD' }} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-card>
+  </div>
+</div>

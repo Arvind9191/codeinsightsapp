@@ -1,0 +1,17 @@
+.my-purchases {
+  margin: 1rem;
+}
+
+table {
+  width: 100%;
+}
+
+.completed {
+  color: green;
+  font-weight: bold;
+}
+
+.pending {
+  color: orange;
+  font-weight: bold;
+}

@@ -31,6 +31,7 @@ export const routes: Routes = [
    {path:'pagenotfound',component:NotFoundComponent},
    {path:'settings' , component:Settings},
    {path:'user' , loadChildren:()=>import('./feature/user/user-module').then(m=>m.UserModule)},
+   {path:'admin',loadChildren:()=>import('./feature/admin/admin-module').then(m=>m.AdminModule)},
  {path:'**',component:NotFoundComponent}
    
 ];

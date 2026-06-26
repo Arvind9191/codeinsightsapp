@@ -1,0 +1,83 @@
+.profile-container {
+  padding: 20px;
+  background: #f5f7fb;
+}
+
+.profile-main-card {
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.main-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.profile-grid {
+ 
+ display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+  gap: 20px;
+
+}
+
+
+/* Card Styling */
+
+.profile-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.profile-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Center profile image */
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Profile image */
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid #3f51b5;
+  object-fit: cover;
+}
+
+/* Form fields full width */
+mat-form-field {
+  width: 100%;
+}
+
+/* Status colors */
+.status {
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.verify-card .status {
+  color: #d32f2f;
+}
+
+.verify-card .status:has(:contains('✔')) {
+  color: #388e3c;
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+}

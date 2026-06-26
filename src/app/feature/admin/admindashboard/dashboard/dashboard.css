@@ -1,0 +1,50 @@
+.dashboard-container {
+  padding: 1rem;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-card {
+  text-align: center;
+  color: #fff;
+  padding: 1rem;
+}
+
+.stat-card h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.stat-card p {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 8px 0;
+}
+
+.stat-card small {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* Colors */
+.blue { background-color: #3b82f6; }
+.green { background-color: #10b981; }
+.orange { background-color: #f59e0b; }
+.purple { background-color: #8b5cf6; }
+
+.dashboard-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .dashboard-content {
+    grid-template-columns: 1fr;
+  }
+}

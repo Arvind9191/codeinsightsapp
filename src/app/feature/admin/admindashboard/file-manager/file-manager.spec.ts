@@ -1,16 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Profile } from './profile';
 
-describe('Profile', () => {
-  let component: Profile;
-  let fixture: ComponentFixture<Profile>;
+import { FileManager } from './file-manager';
+
+describe('FileManager', () => {
+  let component: FileManager;
+  let fixture: ComponentFixture<FileManager>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [Profile],
+      declarations: [FileManager],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Profile);
+    fixture = TestBed.createComponent(FileManager);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

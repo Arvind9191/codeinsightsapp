@@ -1,1 +1,119 @@
-<p>profile works!</p>
+<div class="profile-container">
+  <mat-card class="profile-main-card mat-elevation-z4">
+
+    <mat-card-title class="main-title">
+      <mat-icon>person</mat-icon> My Profile
+    </mat-card-title>
+
+    <mat-card-content>
+      <div class="profile-grid">
+
+        <!-- Profile Image -->
+        <mat-card class="profile-card profile-image-card">
+          <mat-card-header>
+            <mat-card-title>
+              <mat-icon>account_circle</mat-icon> Profile
+            </mat-card-title>
+          </mat-card-header>
+
+          <mat-card-content class="center-content">
+            <img [src]="user.profileImage || defaultImage" class="profile-img"/>
+
+            <input type="file" (change)="onImageSelected($event)" />
+
+            <button mat-raised-button color="primary" (click)="updateProfileImage()">
+              <mat-icon>upload</mat-icon> Upload
+            </button>
+          </mat-card-content>
+        </mat-card>
+
+        <!-- Update Name -->
+        <mat-card class="profile-card">
+          <mat-card-title>
+            <mat-icon>edit</mat-icon> Update Name
+          </mat-card-title>
+
+          <mat-card-content>
+            <form (ngSubmit)="updateName()">
+              <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput [(ngModel)]="user.name" name="name" required />
+              </mat-form-field>
+
+              <button mat-raised-button color="primary">Save</button>
+            </form>
+          </mat-card-content>
+        </mat-card>
+
+        <!-- Update Email -->
+        <mat-card class="profile-card">
+          <mat-card-title>
+            <mat-icon>email</mat-icon> Update Email
+          </mat-card-title>
+
+          <mat-card-content>
+            <form (ngSubmit)="updateEmail()">
+              <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput [(ngModel)]="user.email" name="email" required />
+              </mat-form-field>
+
+              <button mat-raised-button color="accent">Save</button>
+            </form>
+          </mat-card-content>
+        </mat-card>
+
+        <!-- Password -->
+        <mat-card class="profile-card">
+          <mat-card-title>
+            <mat-icon>lock</mat-icon> Change Password
+          </mat-card-title>
+
+          <mat-card-content>
+            <form (ngSubmit)="changePassword()">
+              <mat-form-field appearance="outline">
+                <mat-label>Current</mat-label>
+                <input matInput type="password" [(ngModel)]="passwordData.current" name="current" required />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>New</mat-label>
+                <input matInput type="password" [(ngModel)]="passwordData.new" name="new" required />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Confirm</mat-label>
+                <input matInput type="password" [(ngModel)]="passwordData.confirm" name="confirm" required />
+              </mat-form-field>
+
+              <button mat-raised-button color="warn">Update</button>
+            </form>
+          </mat-card-content>
+        </mat-card>
+
+        <!-- Email Verify -->
+        <mat-card class="profile-card verify-card">
+          <mat-card-title>
+            <mat-icon>verified_user</mat-icon> Email Status
+          </mat-card-title>
+
+          <mat-card-content>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+
+            <p class="status">
+              {{ user.emailVerified ? '✔ Verified' : '✖ Not Verified' }}
+            </p>
+
+            <button *ngIf="!user.emailVerified"
+              mat-stroked-button color="primary"
+              (click)="sendVerificationEmail()">
+              Send Verification
+            </button>
+          </mat-card-content>
+        </mat-card>
+
+      </div>
+    </mat-card-content>
+
+  </mat-card>
+</div>
