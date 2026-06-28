@@ -17,13 +17,22 @@
       </ul>
     </nav> 
     <div class="right-actions-group">
-      <a style="cursor: pointer;" class="login-btn"(click)="openLoginPopup()" >Login</a>
-       <!-- <a  style="cursor: pointer;" routerLink="./user" class="login-btn" >User Dashboard</a> -->
-        <a  style="cursor: pointer;" routerLink="./admin" class="login-btn" >Admin Dashboard</a>
+
+      @if (this.shared.loginRes().data=='user') {
+   <a  style="cursor: pointer;" routerLink="./user" class="login-btn" >User Dashboard</a>
+      }@else if (this.shared.loginRes().data=='admin') {
+   <a  style="cursor: pointer;" routerLink="./admin" class="login-btn" >Admin Dashboard</a>
+
+      }@else if (this.shared.loginRes().data=='logout') {
+  
+  <a style="cursor: pointer;" class="login-btn"(click)="openLoginPopup()" >Login</a>
+      }
+    
+     
       <div class="profile-container" [class.dropdown-active]="isProfileOpen">
         <button class="profile-btn" (click)="toggleProfile($event)" aria-label="Toggle profile menu">
           <span class="profile-avatar">
-             <img/>
+           
           </span>
           <span class="profile-text">arvindkumarsarsawan</span>
         </button> 

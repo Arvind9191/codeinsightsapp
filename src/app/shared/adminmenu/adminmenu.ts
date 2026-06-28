@@ -7,6 +7,8 @@ import { Contactus } from '../../feature/contactus/contactus';
 import { Projectlist } from '../../feature/projectlist/projectlist';
 import { Home } from '../home/home';
 import { RouterLink } from '@angular/router';
+import { SharedData } from '../sharedData/Data';
+import { ApiResponse } from '../../models/CommonModel';
 
 @Component({
   selector: 'app-adminmenu',
@@ -15,12 +17,20 @@ import { RouterLink } from '@angular/router';
   styleUrl: './adminmenu.css',
 })
 export class Adminmenu {
-isMenuOpen = false;
+  isMenuOpen = false;
   isProfileOpen = false;
-  isAboutDropdownOpen = false; // Toggles mobile nested menu tracking
-public authService = inject(AuthService); 
-  constructor(private elementRef: ElementRef,private dialog: MatDialog) {}
+  public shared = inject(SharedData)
 
+  isAboutDropdownOpen = false; // Toggles mobile nested menu tracking
+  public authService = inject(AuthService);
+  constructor(private elementRef: ElementRef, private dialog: MatDialog) { }
+
+
+  
+
+  ngOnInit(){
+    
+  }
   toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
     if (this.isMenuOpen) {
@@ -35,10 +45,10 @@ public authService = inject(AuthService);
       this.isMenuOpen = false;
     }
   }
- 
+
   toggleAboutDropdown(event: Event): void {
     if (window.innerWidth <= 768) {
-      event.preventDefault();  
+      event.preventDefault();
       this.isAboutDropdownOpen = !this.isAboutDropdownOpen;
     }
   }
@@ -51,11 +61,11 @@ public authService = inject(AuthService);
       this.isAboutDropdownOpen = false;
     }
   }
-  public readonly isLoginPopupOpen = signal<boolean>(false);  
+  public readonly isLoginPopupOpen = signal<boolean>(false);
 
 
 
- openLoginPopup() { 
+  openLoginPopup() {
     const dialogRef = this.dialog.open(
       Login,
       {
@@ -64,26 +74,26 @@ public authService = inject(AuthService);
       }
     );
     dialogRef.afterClosed().subscribe((result: any) => {
-        if (result) {
-          console.log(
-            'Login data:',
-            result
-          );
-        }
+      if (result) {
+        console.log(
+          'Login data:',
+          result
+        );
+      }
 
-      });
+    });
   }
 
-  opensignuppopup(){
-    
-    const dialogref=this.dialog.open(
-      SignUp,{
-        width:'100%', 
-        disableClose: true
-      }
+  opensignuppopup() {
+
+    const dialogref = this.dialog.open(
+      SignUp, {
+      width: '100%',
+      disableClose: true
+    }
     );
-    dialogref.afterClosed().subscribe((result:any)=>{
-      if(result){  
+    dialogref.afterClosed().subscribe((result: any) => {
+      if (result) {
       }
     })
   }

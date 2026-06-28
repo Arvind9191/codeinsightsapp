@@ -1,9 +1,12 @@
-import { Injectable, signal } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
+import { SharedData } from '../../shared/sharedData/Data';
+import { ApiResponse } from '../../models/CommonModel';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  shared = inject(SharedData)
  public readonly isLoggedIn = signal<boolean>(false);
    
   public readonly isLoginPopupOpen = signal<boolean>(false);
@@ -20,6 +23,12 @@ export class AuthService {
   }
 
   logout(): void {
+    var data:ApiResponse= {
+      data:'logout',
+      statusCode:0,
+      message:"User Logout"
+    }
+    this.shared.loginRes.set(data)
     this.isLoggedIn.set(false);
   }
 }

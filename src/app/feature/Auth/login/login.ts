@@ -8,11 +8,12 @@ import { SignUp } from '../sign-up/sign-up';
 import { AuthServices } from '../../../core/apiservices/AuthServices';
 import { Globdata } from '../../../shared/globledata/globdata';
 import { ToastrService } from 'ngx-toastr';
+import { SharedData } from '../../../shared/sharedData/Data';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, RouterLink],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
@@ -21,6 +22,7 @@ export class Login {
   public auth = inject(AuthServices);
   public globdata = inject(Globdata)
   public toster = inject(ToastrService)
+  public shared = inject(SharedData)
   public readonly isLoggedIn = signal<boolean>(false);
   loginForm: FormGroup;
   constructor(private fb: FormBuilder, private dialogRef: MatDialogRef<Login>, private dialog: MatDialog ) {
@@ -43,9 +45,9 @@ export class Login {
       "password": this.loginForm.value.password
     }
     this.auth.Login(obj).subscribe((res) => {
-      console.log(res)
       if(res.statusCode==200){
          this.globdata.userdata.set(res)
+         this.shared.loginRes.set(res)
          this.toster.success("Login Successfully")
            this.close();
       }else{

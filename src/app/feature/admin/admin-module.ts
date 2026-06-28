@@ -20,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 import { BaseChartDirective } from 'ng2-charts';
+import { AdminService } from './adminServicers';
 @NgModule({
   declarations: [AdminUser, Project, FileManager, OfferAndDiscount, Dashboard , Admindashboard],
   imports: [CommonModule, AppRoutingModule, 
@@ -41,6 +42,6 @@ import { BaseChartDirective } from 'ng2-charts';
 
     
   ],
-  providers:[provideCharts(withDefaultRegisterables())]
+  providers:[provideCharts(withDefaultRegisterables()), AdminService]
 })
 export class AdminModule {}
