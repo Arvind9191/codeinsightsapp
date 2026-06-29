@@ -7,6 +7,7 @@ import { AdminUser } from '../admindashboard/user/user';
 import { Project } from '../admindashboard/project/project';
 import { FileManager } from '../admindashboard/file-manager/file-manager';
 import { OfferAndDiscount } from '../admindashboard/offer-and-discount/offer-and-discount';
+import { Uploadproject } from '../admindashboard/uploadproject/uploadproject';
 
 
 
@@ -18,6 +19,7 @@ children:[
   {path:'adminproject', component:Project},
   {path:'filemanager', component:FileManager},
   {path:'offeranddiscount', component:OfferAndDiscount},
+  {path:'projectupload' , component:Uploadproject},
   { path: '', redirectTo: 'admindashboard', pathMatch: 'full' }
 ]
 

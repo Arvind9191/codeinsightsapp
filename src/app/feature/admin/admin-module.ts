@@ -21,12 +21,31 @@ import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 import { BaseChartDirective } from 'ng2-charts';
 import { AdminService } from './adminServicers';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatSelectModule } from '@angular/material/select';
+
+import { MatFormFieldModule } from '@angular/material/form-field'; // ✅ Required for mat-form-field
+import { MatInputModule } from '@angular/material/input';
+import { Uploadproject } from './admindashboard/uploadproject/uploadproject'; // Optional, if using matInput
 @NgModule({
-  declarations: [AdminUser, Project, FileManager, OfferAndDiscount, Dashboard , Admindashboard],
-  imports: [CommonModule, AppRoutingModule, 
+  declarations: [
+    AdminUser,
+    Project,
+    FileManager,
+    OfferAndDiscount,
+    Dashboard,
+    Admindashboard,
+    Uploadproject,
+  ],
+  imports: [
+    CommonModule,
+    AppRoutingModule,
     MatCard,
     MatIcon,
     MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
     MatSidenavModule,
     MatListModule,
     MatIconModule,
@@ -37,11 +56,11 @@ import { AdminService } from './adminServicers';
     FormsModule,
     MatFormField,
     BaseChartDirective,
-    MatLabel
-
-
-    
+    MatLabel,
+    MatPaginatorModule,
+    MatSortModule,
+    MatSelectModule,
   ],
-  providers:[provideCharts(withDefaultRegisterables()), AdminService]
+  providers: [provideCharts(withDefaultRegisterables()), AdminService],
 })
 export class AdminModule {}

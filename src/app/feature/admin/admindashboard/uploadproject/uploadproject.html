@@ -1,0 +1,112 @@
+<div class="upload-wrapper">
+    <mat-card class="upload-card">
+        <mat-card-header>
+            <mat-card-title>🚀 Upload Project</mat-card-title>
+            <mat-card-subtitle>Fill in details and attach files</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+            <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+
+                <!-- Two-column grid -->
+                <div class="form-grid">
+                    <!-- Category Dropdown -->
+                    <mat-form-field appearance="outline">
+                        <mat-label>Category</mat-label>
+                        <mat-select formControlName="categoryId">
+                            <mat-option *ngFor="let cat of categories" [value]="cat.id">
+                                {{ cat.name }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <!-- Title -->
+                    <mat-form-field appearance="outline">
+                        <mat-label>Title</mat-label>
+                        <input matInput formControlName="title" placeholder="Project Title">
+                    </mat-form-field>
+
+                    <!-- Description (full width) -->
+                    <mat-form-field appearance="outline" class="full-span">
+                        <mat-label>Description</mat-label>
+                        <textarea matInput formControlName="description" rows="3"></textarea>
+                    </mat-form-field>
+
+                    <!-- Price -->
+                    <mat-form-field appearance="outline">
+                        <mat-label>Price</mat-label>
+                        <input matInput type="number" formControlName="price">
+                    </mat-form-field>
+
+                    <!-- Payment Page URL -->
+                    <mat-form-field appearance="outline">
+                        <mat-label>Payment Page URL</mat-label>
+                        <input matInput formControlName="paymentPageUrl" placeholder="https://...">
+                    </mat-form-field>
+
+                    <!-- About Video URL -->
+                    <mat-form-field appearance="outline">
+                        <mat-label>About Video URL</mat-label>
+                        <input matInput formControlName="aboutVideoUrl" placeholder="https://...">
+                    </mat-form-field>
+
+                    <!-- Setup Video URL -->
+                    <mat-form-field appearance="outline">
+                        <mat-label>Setup Video URL</mat-label>
+                        <input matInput formControlName="setupVideoUrl" placeholder="https://...">
+                    </mat-form-field>
+
+                    <!-- Technologies (full width) -->
+                    <mat-form-field appearance="outline" class="full-span">
+                        <mat-label>Technologies</mat-label>
+                        <mat-select formControlName="technologies" multiple>
+                            <mat-option *ngFor="let tech of techOptions" [value]="tech">{{ tech }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <!-- File Uploads -->
+                <div class="file-grid">
+                    <!-- Project File -->
+                    <div class="file-upload">
+                        <button mat-stroked-button color="accent" (click)="projectFileInput.click()">
+                            📂 Project File
+                        </button>
+                        <input type="file" #projectFileInput (change)="onFileSelected($event, 'projectfile')" hidden>
+                        <div class="file-name" *ngIf="selectedFiles['projectfile']">
+                            Selected: {{ selectedFiles['projectfile'].name }}
+                        </div>
+                    </div>
+
+                    <!-- Image File -->
+                    <div class="file-upload">
+                        <button mat-stroked-button color="accent" (click)="imageFileInput.click()">
+                            🖼️ Image File
+                        </button>
+                        <input type="file" #imageFileInput (change)="onFileSelected($event, 'imagefile')" hidden>
+                        <div class="file-name" *ngIf="selectedFiles['imagefile']">
+                            Selected: {{ selectedFiles['imagefile'].name }}
+                        </div>
+                    </div>
+
+                    <!-- Project Report -->
+                    <div class="file-upload">
+                        <button mat-stroked-button color="accent" (click)="reportFileInput.click()">
+                            📑 Project Report
+                        </button>
+                        <input type="file" #reportFileInput (change)="onFileSelected($event, 'projectReport')" hidden>
+                        <div class="file-name" *ngIf="selectedFiles['projectReport']">
+                            Selected: {{ selectedFiles["projectReport"].name }}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="actions">
+                    <button mat-raised-button color="primary" type="submit">Upload</button>
+                    <button mat-button type="reset">Reset</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

@@ -22,7 +22,7 @@ import { AuthServices } from '../../../core/apiservices/AuthServices';
 
 @Component({
   selector: 'app-sign-up',
-  imports: [MatDialogActions, MatDialogContent, ReactiveFormsModule, CommonModule],
+  imports: [ ReactiveFormsModule, CommonModule],
   templateUrl: './sign-up.html',
   styleUrl: './sign-up.css',
 })
@@ -60,11 +60,9 @@ export class SignUp {
       this.auth.Signup(obje).subscribe({
         next: (response: any) => {
 
-
-
-
           console.log('API Success Response:', response);
           alert('Signup successful');
+          this.close()
         },
 
         error: (error: any) => {

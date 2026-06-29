@@ -2,15 +2,19 @@
   <!-- Sidebar -->
   <mat-sidenav #drawer class="sidebar" [mode]="isMobile ? 'over' : 'side'" [(opened)]="opened">
     <mat-nav-list>
-      <a mat-list-item routerLink="/dashboard" class="nav-item">
+      <a mat-list-item routerLink="/admin/admindashboard" class="nav-item">
         <mat-icon class="nav-icon">insights</mat-icon>
         <span class="nav-text">Dashboard</span>
       </a>
-      <a mat-list-item routerLink="/users" class="nav-item">
+      <a mat-list-item routerLink="/admin/adminuser" class="nav-item">
         <mat-icon class="nav-icon">people</mat-icon>
         <span class="nav-text">Users</span>
       </a>
-      <a mat-list-item routerLink="/projects" class="nav-item">
+      <a mat-list-item routerLink="/admin/projectupload" class="nav-item">
+        <mat-icon class="nav-icon">folder</mat-icon>
+        <span class="nav-text">Upload</span>
+      </a>
+      <a mat-list-item routerLink="/admin/adminproject" class="nav-item">
         <mat-icon class="nav-icon">folder</mat-icon>
         <span class="nav-text">Projects</span>
       </a>

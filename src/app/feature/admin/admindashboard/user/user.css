@@ -1,0 +1,58 @@
+.user-table-container {
+  padding: 20px;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.search-box, .filter-box {
+  flex: 1 1 250px;
+}
+
+.table-wrapper {
+  overflow-x: auto; /* horizontal scroll on small screens */
+}
+
+table {
+  width: 100%;
+  min-width: 600px; /* ensures columns don’t collapse too much */
+  margin-top: 20px;
+}
+
+.verified {
+  color: green;
+  font-weight: bold;
+}
+
+.not-verified {
+  color: red;
+  font-weight: bold;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  .controls {
+    flex-direction: column;
+  }
+
+  .search-box, .filter-box {
+    width: 100%;
+  }
+
+  table {
+    font-size: 0.85rem;
+  }
+
+  button {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+  }
+}
