@@ -1,0 +1,63 @@
+.project-section {
+  padding: 1rem;
+}
+
+/* Filters row responsive */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.filter-item {
+  flex: 1 1 250px; /* grows but minimum width */
+}
+
+/* Table responsiveness */
+.table-container {
+  width: 100%;
+  overflow-x: auto; /* horizontal scroll on small screens */
+}
+
+.responsive-table {
+  width: 100%;
+  min-width: 600px; /* ensures table doesn’t collapse too much */
+}
+
+/* Expand panel spacing */
+.expand-panel {
+  margin-top: 1rem;
+}
+
+/* Bulk actions responsive */
+.bulk-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.bulk-actions button {
+  flex: 1 1 200px;
+}
+
+/* 📱 Mobile adjustments */
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+  }
+
+  .bulk-actions {
+    flex-direction: column;
+  }
+
+  .responsive-table {
+    font-size: 0.85rem; /* smaller text on mobile */
+  }
+
+  .responsive-table th,
+  .responsive-table td {
+    padding: 6px;
+  }
+}

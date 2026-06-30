@@ -1,0 +1,103 @@
+.dialog-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.dialog-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 0.5rem;
+}
+
+/* Inquiry info section */
+.inquiry-info {
+  background: #f1f5f9;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 6px 0;
+  flex-wrap: wrap; /* ✅ allows wrapping on small screens */
+}
+
+.label {
+  font-weight: 600;
+  color: #374151;
+}
+
+.value {
+  color: #1e3a8a;
+  font-weight: 500;
+  word-break: break-word; /* ✅ prevents overflow */
+}
+
+/* Status badges */
+.status {
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+}
+.status.resolved {
+  background: #4caf50;
+}
+.status.pending {
+  background: #f59e0b;
+}
+
+/* Reply section */
+.reply-section {
+  margin-top: 1rem;
+}
+.reply-field {
+  width: 100%;
+}
+
+/* Footer buttons */
+.dialog-footer {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap; /* ✅ buttons wrap on mobile */
+  gap: 0.5rem;
+}
+
+/* Tablet view */
+@media (max-width: 768px) {
+  .dialog-header {
+    font-size: 16px;
+  }
+  .info-row {
+    flex-direction: column; /* ✅ stack label + value */
+    align-items: flex-start;
+  }
+  .label {
+    margin-bottom: 4px;
+  }
+}
+
+/* Mobile view */
+@media (max-width: 480px) {
+  .dialog-body {
+    gap: 1rem;
+  }
+  .inquiry-info {
+    padding: 0.5rem;
+  }
+  .info-row {
+    font-size: 13px;
+  }
+  .reply-field textarea {
+    font-size: 13px;
+  }
+  .dialog-footer {
+    justify-content: center; /* ✅ center buttons on mobile */
+  }
+}

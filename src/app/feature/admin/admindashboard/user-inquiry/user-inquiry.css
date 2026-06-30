@@ -1,0 +1,85 @@
+.inquiry-section {
+  padding: 1rem;
+}
+
+/* Filters row */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.filter-item {
+  flex: 1;
+  min-width: 200px;
+}
+
+/* Table container */
+.table-container {
+  overflow-x: auto;
+  background: #fff;
+  border-radius: 6px;
+  padding: 0.5rem;
+}
+
+/* Responsive table */
+.responsive-table {
+  width: 100%;
+  min-width: 600px; /* ensures columns don’t collapse on desktop */
+}
+
+/* Status chips alternative styling if not using mat-chip */
+.status-resolved {
+  background: #4caf50;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+.status-pending {
+  background: #ff9800;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+/* Pagination spacing */
+mat-paginator {
+  margin-top: 1rem;
+}
+
+/* Tablet view */
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+  }
+  .filter-item {
+    width: 100%;
+  }
+  .responsive-table {
+    min-width: 100%;
+  }
+}
+
+/* Mobile view */
+@media (max-width: 480px) {
+  .inquiry-section {
+    padding: 0.5rem;
+  }
+  .filters {
+    gap: 0.5rem;
+  }
+  .filter-item {
+    min-width: 100%;
+  }
+  .table-container {
+    padding: 0.25rem;
+  }
+  th.mat-header-cell, td.mat-cell {
+    font-size: 0.8rem;
+    padding: 4px;
+  }
+  mat-paginator {
+    font-size: 0.8rem;
+  }
+}

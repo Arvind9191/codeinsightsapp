@@ -1,0 +1,59 @@
+<h2 mat-dialog-title>Edit Project</h2>
+
+<mat-dialog-content class="dialog-content">
+  <div class="grid-container">
+    <!-- Left Column -->
+    <div class="grid-item">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Project Name</mat-label>
+        <input matInput [(ngModel)]="data.name">
+      </mat-form-field>
+    </div>
+
+    <div class="grid-item">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Price</mat-label>
+        <input matInput type="number" [(ngModel)]="data.price">
+      </mat-form-field>
+    </div>
+
+    <div class="grid-item">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Payment URL</mat-label>
+        <input matInput [(ngModel)]="data.paymentUrl">
+      </mat-form-field>
+    </div>
+
+    <div class="grid-item">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>About Project URL</mat-label>
+        <input matInput [(ngModel)]="data.aboutVideo">
+      </mat-form-field>
+    </div>
+
+    <div class="grid-item">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Setup URL</mat-label>
+        <input matInput [(ngModel)]="data.setupVideo">
+      </mat-form-field>
+    </div>
+
+    <div class="grid-item">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Project Report URL</mat-label>
+        <input matInput [(ngModel)]="data.reportUrl">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <!-- Large Description Box -->
+  <mat-form-field appearance="outline" class="full-width description-box">
+    <mat-label>Description</mat-label>
+    <textarea matInput rows="4" [(ngModel)]="data.description"></textarea>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end" class="dialog-actions">
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="save()">Save</button>
+</mat-dialog-actions>

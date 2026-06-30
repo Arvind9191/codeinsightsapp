@@ -48,6 +48,7 @@ export class Login {
       if(res.statusCode==200){
          this.globdata.userdata.set(res)
          this.shared.loginRes.set(res)
+         this.authService.login()
          this.toster.success("Login Successfully")
            this.close();
       }else{

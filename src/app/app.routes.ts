@@ -13,6 +13,7 @@ import { EmailAuthGuard } from './core/Auth/email-verify';
 import { ErrorComponent } from './shared/error/error';
 import { NotFoundComponent } from './shared/not-found-component/not-found-component';
 import { Settings } from './feature/Auth/settings/settings';
+import { authguardGuard } from './core/guards/authguard-guard';
 export const routes: Routes = [
     {path:'' , component:Home},      
     {path:'home' , component:Home},
@@ -20,7 +21,7 @@ export const routes: Routes = [
     { path: '', component: Layout,children: [
       { path: '',component: Home }
     ]},
-    {path:'uploadproject',component:Uploadproject},
+    // {path:'uploadproject',component:Uploadproject},
    {path:'Prodetails' , component:Prodetails},
    {path:'projects' , component:Projectlist},
    {path:'contact' , component:Contactus},
@@ -30,8 +31,8 @@ export const routes: Routes = [
    {path:'error' , component:ErrorComponent},
    {path:'pagenotfound',component:NotFoundComponent},
    {path:'settings' , component:Settings},
-   {path:'user' , loadChildren:()=>import('./feature/user/user-module').then(m=>m.UserModule)},
-   {path:'admin',loadChildren:()=>import('./feature/admin/admin-module').then(m=>m.AdminModule)},
+   {path:'user' , loadChildren:()=>import('./feature/user/user-module').then(m=>m.UserModule) ,canActivate:[authguardGuard]},
+   {path:'admin',loadChildren:()=>import('./feature/admin/admin-module').then(m=>m.AdminModule), canActivate:[authguardGuard]},
  {path:'**',component:NotFoundComponent}
    
 ];

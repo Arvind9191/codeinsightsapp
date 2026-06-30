@@ -1,0 +1,45 @@
+<h2 mat-dialog-title class="dialog-header">
+  <mat-icon color="accent">chat</mat-icon>
+  Inquiry Details
+</h2>
+
+<mat-dialog-content class="dialog-body">
+  <!-- Inquiry Info Section -->
+  <div class="inquiry-info">
+    <div class="info-row">
+      <span class="label">Email:</span>
+      <span class="value">{{data.email}}</span>
+    </div>
+    <div class="info-row">
+      <span class="label">Reason:</span>
+      <span class="value">{{data.reason}}</span>
+    </div>
+    <div class="info-row">
+      <span class="label">Message:</span>
+      <span class="value">{{data.message}}</span>
+    </div>
+    <div class="info-row">
+      <span class="label">Date:</span>
+      <span class="value">{{data.date | date}}</span>
+    </div>
+    <div class="info-row">
+      <span class="label">Status:</span>
+      <span class="status" [ngClass]="data.status === 'Resolved' ? 'resolved' : 'pending'">
+        {{data.status}}
+      </span>
+    </div>
+  </div>
+
+  <!-- Reply Section -->
+  <div class="reply-section">
+    <mat-form-field appearance="fill" class="reply-field">
+      <mat-label>Reply Message</mat-label>
+      <textarea matInput [(ngModel)]="replyMessage" rows="4" placeholder="Write your reply..."></textarea>
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end" class="dialog-footer">
+  <button mat-stroked-button color="warn" (click)="close()">Close</button>
+  <button mat-raised-button color="primary" (click)="sendReply()">Send Reply</button>
+</mat-dialog-actions>

@@ -1,1 +1,109 @@
-<p>project works!</p>
+<div class="project-section">
+
+  <!-- 🔍 Filters in a responsive row -->
+  <div class="filters">
+    <mat-form-field appearance="outline" class="filter-item">
+      <mat-label>Search Project</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search by name, category, tech">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="filter-item">
+      <mat-label>Category</mat-label>
+      <mat-select [(value)]="selectedCategory" (selectionChange)="filterByCategory()">
+        <mat-option *ngFor="let cat of categories" [value]="cat">{{cat}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <!-- 📊 Responsive Table -->
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 responsive-table">
+
+    
+    <!-- Checkbox for Bulk Actions -->
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="toggleAll($event)"></mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox [(ngModel)]="row.selected"></mat-checkbox>
+      </td>
+    </ng-container>
+
+    <!-- Project Name -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Project</th>
+      <td mat-cell *matCellDef="let row">{{row.name}}</td>
+    </ng-container>
+
+    <!-- Category -->
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Category</th>
+      <td mat-cell *matCellDef="let row">{{row.category}}</td>
+    </ng-container>
+
+    <!-- Price (Inline Editing) -->
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
+      <td mat-cell *matCellDef="let row">
+        <input matInput [(ngModel)]="row.price" (blur)="updatePrice(row)">
+      </td>
+    </ng-container>
+
+    <!-- Technology -->
+    <ng-container matColumnDef="technology">
+      <th mat-header-cell *matHeaderCellDef>Technology</th>
+      <td mat-cell *matCellDef="let row">{{row.technology}}</td>
+    </ng-container>
+
+    <!-- Analytics -->
+    <ng-container matColumnDef="analytics">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Downloads</th>
+      <td mat-cell *matCellDef="let row">{{row.downloads}}</td>
+    </ng-container>
+
+    <!-- Status -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef>Status</th>
+      <td mat-cell *matCellDef="let row">
+        <mat-slide-toggle [(ngModel)]="row.active" (change)="toggleStatus(row)">
+          {{row.active ? 'Active' : 'Disabled'}}
+        </mat-slide-toggle>
+      </td>
+    </ng-container>
+
+    <!-- Actions -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let row">
+        <button mat-icon-button color="primary" (click)="editProject(row)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="deleteProject(row)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="expandRow(row)"></tr>
+    </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+
+  <!-- 📂 Expandable Row -->
+  <mat-expansion-panel *ngIf="expandedRow" class="expand-panel">
+    <mat-expansion-panel-header>
+      <mat-panel-title>{{expandedRow.name}} Details</mat-panel-title>
+    </mat-expansion-panel-header>
+    <p><strong>Description:</strong> {{expandedRow.description}}</p>
+    <p><strong>About Video:</strong> {{expandedRow.aboutVideo}}</p>
+    <p><strong>Setup Video:</strong> {{expandedRow.setupVideo}}</p>
+    <p><strong>Report:</strong> {{expandedRow.report}}</p>
+  </mat-expansion-panel>
+
+  <!-- Bulk Actions -->
+  <div class="bulk-actions">
+    <button mat-raised-button color="warn" (click)="bulkDisable()">Disable Selected</button>
+    <button mat-raised-button color="primary" (click)="bulkUpdatePrice()">Update Prices</button>
+  </div>
+</div>

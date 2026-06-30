@@ -8,6 +8,7 @@ import { Project } from '../admindashboard/project/project';
 import { FileManager } from '../admindashboard/file-manager/file-manager';
 import { OfferAndDiscount } from '../admindashboard/offer-and-discount/offer-and-discount';
 import { Uploadproject } from '../admindashboard/uploadproject/uploadproject';
+import { UserInquiry } from '../admindashboard/user-inquiry/user-inquiry';
 
 
 
@@ -20,6 +21,7 @@ children:[
   {path:'filemanager', component:FileManager},
   {path:'offeranddiscount', component:OfferAndDiscount},
   {path:'projectupload' , component:Uploadproject},
+  {path:"adminquery",component:UserInquiry},
   { path: '', redirectTo: 'admindashboard', pathMatch: 'full' }
 ]
 

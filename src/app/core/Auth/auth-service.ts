@@ -18,6 +18,7 @@ export class AuthService {
     this.isLoginPopupOpen.set(false);
   }
   login(): void {
+    debugger
     this.isLoggedIn.set(true);
     this.closeLoginPopup();  
   }

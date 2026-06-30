@@ -108,11 +108,7 @@
 /* Banner */
 
 .hero{
-  background:linear-gradient(
-  90deg,
-  #ff6a2c,
-  #dbe5f3
-  );
+  background:linear-gradient(90deg, #2c50ff, #b3c4dd);
 
   text-align:center;
   padding:35px 15px;

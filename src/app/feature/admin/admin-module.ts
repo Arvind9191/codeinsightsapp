@@ -22,12 +22,21 @@ import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 import { BaseChartDirective } from 'ng2-charts';
 import { AdminService } from './adminServicers';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSelectModule } from '@angular/material/select';
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field'; // ✅ Required for mat-form-field
 import { MatInputModule } from '@angular/material/input';
-import { Uploadproject } from './admindashboard/uploadproject/uploadproject'; // Optional, if using matInput
+import { Uploadproject } from './admindashboard/uploadproject/uploadproject';
+import { Editproject } from './admindashboard/project/editproject/editproject';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatDialogModule } from '@angular/material/dialog';
+import { Deleteproject } from './admindashboard/project/deleteproject/deleteproject';
+import { UserInquiry } from './admindashboard/user-inquiry/user-inquiry';
+import { ViewInquiryDialog } from './admindashboard/user-inquiry/view-inquiry-dialog/view-inquiry-dialog';
 @NgModule({
   declarations: [
     AdminUser,
@@ -37,18 +46,25 @@ import { Uploadproject } from './admindashboard/uploadproject/uploadproject'; //
     Dashboard,
     Admindashboard,
     Uploadproject,
+    Editproject,
+    Deleteproject,
+    UserInquiry,
+    ViewInquiryDialog,
   ],
   imports: [
     CommonModule,
     AppRoutingModule,
     MatCard,
     MatIcon,
+    MatDatepickerModule,
     MatTableModule,
+    MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule,
     MatSidenavModule,
     MatListModule,
     MatIconModule,
+    MatDialogModule,
     MatButtonModule,
     MatCardModule,
     MatToolbarModule,
@@ -60,6 +76,11 @@ import { Uploadproject } from './admindashboard/uploadproject/uploadproject'; //
     MatPaginatorModule,
     MatSortModule,
     MatSelectModule,
+    MatChipsModule,
+
+    MatCheckboxModule,
+
+    MatExpansionModule,
   ],
   providers: [provideCharts(withDefaultRegisterables()), AdminService],
 })

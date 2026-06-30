@@ -141,43 +141,16 @@ buynow(pro:any){
 
 
   courses = [
-    {
-      name:'C Language',
-      image:'assets/course/html.png',
-      route:'/html-course',
-      icon:'fa-solid fa-code'
-    }, 
+   
     {
       name:'C#',
       image:'assets/course/html.png',
       route:'/html-course',
       icon:'fa-regular fa-file-code'
     }, 
-    {
-      name:'C++',
-      image:'assets/course/html.png',
-      route:'/html-course',
-      icon:'fa-solid fa-laptop-code'
-    }, 
-    {
-      name:'HTML',
-      image:'assets/course/html.png',
-      route:'/html-course',
-      icon:'fa-brands fa-html5'
-    }, 
-    {
-      name:'CSS',
-      image:'assets/course/html.png',
-      route:'/html-course',
-      icon:'fa-brands fa-css3-alt'
-    }, 
-    {
-      name:'BOOTSTRAP',
-      image:'assets/course/html.png',
-      route:'/html-course',
-      icon:'fa-brands fa-bootstrap',
-      color:'#0769AD'
-    }, 
+  
+   
+     
     {
       name:'JQUERY',
       image:'assets/course/html.png',
