@@ -40,8 +40,10 @@ export class Login {
 
     debugger
     if (this.loginForm.invalid) {
+     
       this.loginForm.markAllAsTouched(); return;
     }
+    //this.close()
     let obj = {
       "email": this.loginForm.value.email,
       "password": this.loginForm.value.password
@@ -56,6 +58,7 @@ export class Login {
 
            this.close();
       }else{
+        this.authService.isLoginPopupOpen()
          this.toster.error("Login Faild")
       }
      
