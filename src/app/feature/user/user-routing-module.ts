@@ -6,21 +6,23 @@ import { Purchases } from './purchases/purchases';
 import { Projects } from './projects/projects';
 import { Settings } from './settings/settings';
 import { Usercomponent } from './usercomponent/usercomponent';
+import { authguardGuard } from '../../core/guards/authguard-guard';
 
 const routes: Routes = [
    {
     path: '',
     component: Usercomponent,
     children: [
-      { path: 'userdashboard', component: DashboardHome },
-      { path: 'profile', component: Profile },
-      { path: 'purchases', component: Purchases },
-      { path: 'projects', component: Projects },
+      { path: 'userdashboard', component: DashboardHome , canActivate:[authguardGuard] },
+      { path: 'profile', component: Profile , canActivate:[authguardGuard] },
+      { path: 'purchases', component: Purchases  , canActivate:[authguardGuard]},
+      { path: 'projects', component: Projects , canActivate:[authguardGuard]},
       { path: 'settings', component: Settings },
 
       // ✅ Redirect empty child path to dashboard
       { path: '', redirectTo: 'userdashboard', pathMatch: 'full' }
-    ]
+    ],
+   
   }
 ];
 

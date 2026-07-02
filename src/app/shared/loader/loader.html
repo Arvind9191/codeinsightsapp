@@ -1,1 +1,4 @@
-<p>loader works!</p>
+<!-- loader.component.html -->
+<div class="loader" [class.show]="isLoading$ | async">
+  <img src="/loader.png" alt="Loading..." />
+</div>

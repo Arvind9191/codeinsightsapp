@@ -32,4 +32,10 @@ export class AuthService {
     this.shared.loginRes.set(data)
     this.isLoggedIn.set(false);
   }
+
+
+
+
+
+  
 }

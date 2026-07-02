@@ -11,9 +11,10 @@
  
     <nav class="nav-menu" [class.active]="isMenuOpen">
       <ul class="nav-list">         
+         <li><a routerLink="/home" class="nav-link">Home</a></li>
         <li><a routerLink="/projects" class="nav-link">Projects</a></li>
-        <!-- <li><a routerLink="/contact" class="nav-link">Contact</a></li>
-        <li><a routerLink="uploadproject" class="nav-link">Upload Project</a></li> -->
+       
+       <!--  <li><a routerLink="uploadproject" class="nav-link">Upload Project</a></li> -->
       </ul>
     </nav> 
     <div class="right-actions-group">
@@ -30,18 +31,17 @@
     
      
       <div class="profile-container" [class.dropdown-active]="isProfileOpen">
-        <button class="profile-btn" (click)="toggleProfile($event)" aria-label="Toggle profile menu">
+        <!-- <button class="profile-btn" (click)="toggleProfile($event)" aria-label="Toggle profile menu">
           <span class="profile-avatar">
            
           </span>
           <span class="profile-text">arvindkumarsarsawan</span>
-        </button> 
-        <ul class="profile-dropdown">
+        </button>  -->
+        <!-- <ul class="profile-dropdown">
           <li><a routerLink="settings" class="dropdown-item">Settings</a></li>
-          <!-- <li><a routerLink="#" class="dropdown-item">Change Password</a></li> -->
           <li class="divider"></li>
           <li><a routerLink="#" class="dropdown-item logout-link">Logout</a></li>
-        </ul>
+        </ul> -->
       </div>
     </div> 
   </div>
