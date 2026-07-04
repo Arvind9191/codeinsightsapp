@@ -1,6 +1,6 @@
 export const enviroment ={    
-   baseapiurl:'https://codeinsights.runasp.net/api/',
-    //baseapiurl:"https://localhost:7045/api/"
+   //baseapiurl:'https://codeinsights.runasp.net/api/',
+    baseapiurl:"https://localhost:7045/api/",
     appurl:"thecodeinsights.vercel.app"
 }
 
