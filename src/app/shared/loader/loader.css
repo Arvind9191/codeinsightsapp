@@ -1,0 +1,56 @@
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.55); /* Dims the login form underneath */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* Must be higher than Bootstrap modal (1055) and backdrop (1050) */
+  z-index: 99999 !important; 
+  
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.loader.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Flex container to stack the spinner and text vertically */
+.spinner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.chakra-spinner {
+  width: 80px;
+  height: 80px;
+  animation: spin 1.2s linear infinite;
+}
+
+/* Gives every individual spoke a thick line weight and rounded caps */
+.chakra-spinner line {
+  stroke-width: 6px;
+  stroke-linecap: round;
+}
+
+/* Optional text styling to match your reference image */
+.loading-text {
+  font-family: sans-serif;
+  color: #666666;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
