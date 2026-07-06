@@ -1,1 +1,21 @@
-<p>loader works!</p>
+<!-- loader.component.html -->
+<div class="loader" [class.show]="isLoading$ | async">
+<div class="spinner-container">
+    <!-- SVG with 12 evenly distributed rounded spokes -->
+    <svg class="chakra-spinner" viewBox="0 0 100 100">
+      <line x1="50" y1="15" x2="50" y2="30" stroke="#0066ff" />
+      <line x1="50" y1="15" x2="50" y2="30" stroke="#00b0ff" transform="rotate(30 50 50)" />
+      <line x1="50" y1="15" x2="50" y2="30" stroke="#00bfa5" transform="rotate(60 50 50)" />
+      <line x1="50" y1="15" x2="50" y2="30" stroke="#4caf50" transform="rotate(90 50 50)" />
+      <line x1="50" y1="15" x2="50" y2="30" stroke="#ffeb3b" transform="rotate(120 50 50)" />
+      <line x1="50" y1="15" x2="50" y2="30" stroke="#ff9800" transform="rotate(150 50 50)" />
+      <line x1="50" y1="15" x2="50" y2="30" stroke="#ff5722" transform="rotate(180 50 50)" />
+      <line x1="50" y1="15" x2="50" y2="30" stroke="#ff1744" transform="rotate(210 50 50)" />
+      <line x1="50" y1="15" x2="50" y2="30" stroke="#e040fb" transform="rotate(240 50 50)" />
+      <line x1="50" y1="15" x2="50" y2="30" stroke="#9c27b0" transform="rotate(270 50 50)" />
+      <line x1="50" y1="15" x2="50" y2="30" stroke="#651fff" transform="rotate(300 50 50)" />
+      <line x1="50" y1="15" x2="50" y2="30" stroke="#2979ff" transform="rotate(330 50 50)" />
+    </svg>
+    <div class="loading-text">Loading...</div>
+  </div>
+</div>

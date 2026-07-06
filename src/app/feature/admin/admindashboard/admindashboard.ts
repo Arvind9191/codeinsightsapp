@@ -23,6 +23,8 @@ opened = true;
   }
 
   logout(){
+    localStorage.removeItem('login')
+    
    this.authService.logout();
   }
 }

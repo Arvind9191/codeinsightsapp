@@ -9,6 +9,7 @@ import { AuthServices } from '../../../core/apiservices/AuthServices';
 import { Globdata } from '../../../shared/globledata/globdata';
 import { ToastrService } from 'ngx-toastr';
 import { SharedData } from '../../../shared/sharedData/Data';
+import { Cookies } from '../../../core/Auth/cookie.servcie';
 
 @Component({
   selector: 'app-login',
@@ -23,6 +24,7 @@ export class Login {
   public globdata = inject(Globdata)
   public toster = inject(ToastrService)
   public shared = inject(SharedData)
+  public cookie = inject(Cookies)
   public readonly isLoggedIn = signal<boolean>(false);
   loginForm: FormGroup;
   constructor(private fb: FormBuilder, private dialogRef: MatDialogRef<Login>, private dialog: MatDialog ) {
@@ -38,8 +40,10 @@ export class Login {
 
     debugger
     if (this.loginForm.invalid) {
+     
       this.loginForm.markAllAsTouched(); return;
     }
+    //this.close()
     let obj = {
       "email": this.loginForm.value.email,
       "password": this.loginForm.value.password
@@ -48,10 +52,13 @@ export class Login {
       if(res.statusCode==200){
          this.globdata.userdata.set(res)
          this.shared.loginRes.set(res)
+           this.cookie.setCookie(res)
          this.authService.login()
-         this.toster.success("Login Successfully")
+        //  this.toster.success("Login Successfully")
+
            this.close();
       }else{
+        this.authService.isLoginPopupOpen()
          this.toster.error("Login Faild")
       }
      
