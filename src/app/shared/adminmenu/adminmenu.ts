@@ -29,7 +29,12 @@ export class Adminmenu {
   
 
   ngOnInit(){
-    
+    debugger
+    var userdata = localStorage.getItem("userdetails")
+    if(userdata!=null){
+     var user:ApiResponse = JSON.parse(userdata)
+      this.shared.loginRes.set(user)
+    }
   }
   toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;

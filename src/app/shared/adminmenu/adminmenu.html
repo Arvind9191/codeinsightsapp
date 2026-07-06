@@ -19,9 +19,9 @@
     </nav> 
     <div class="right-actions-group">
 
-      @if (this.shared.loginRes().data=='user') {
+      @if (this.shared.loginRes().data.userRole=='user') {
    <a  style="cursor: pointer;" routerLink="./user" class="login-btn" >User Dashboard</a>
-      }@else if (this.shared.loginRes().data=='admin') {
+      }@else if (this.shared.loginRes().data.userRole=='admin') {
    <a  style="cursor: pointer;" routerLink="./admin" class="login-btn" >Admin Dashboard</a>
 
       }@else if (this.shared.loginRes().data=='logout') {

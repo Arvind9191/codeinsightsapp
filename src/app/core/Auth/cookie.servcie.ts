@@ -25,7 +25,7 @@ export class Cookies {
             this.nextTwoHourTimestamp =  new Date(now.getTime() + ( 2 *60 * 60 * 1000)).getTime();
 
             var log = {
-                role: data.data,
+                role: data.data.userRole,
                 time: this.nextTwoHourTimestamp
             }
             localStorage.setItem('login', JSON.stringify(log))
@@ -55,13 +55,13 @@ export class Cookies {
                 if(login.time>currentTimestamp){
                  
                    let islogin: boolean = false
-                   let userType:string = 'logout'
+                   let userType:any = 'logout'
                     if(login.role=='user' && params.includes('/user')){
                         islogin= true
-                         userType = 'user'
+                         userType = JSON.stringify(localStorage.getItem("userdetails"))
                     }else if(login.role=='admin' && params.includes('/admin')){
                          islogin = true
-                         userType = 'admin'
+                        userType = JSON.stringify(localStorage.getItem("userdetails"))
                     }else{
                         userType = 'logout'
                         islogin =false;
@@ -81,6 +81,9 @@ export class Cookies {
                         return false;
                     }
                 }else{
+
+                    localStorage.removeItem("userdetails")
+                    localStorage.removeItem("login")
                     return false;
                 }
 
