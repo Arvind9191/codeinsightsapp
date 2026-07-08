@@ -28,4 +28,25 @@ export class AuthServices {
     const url = this.baseurl+Endpoint.verifyemail+`?userId=${data.userid}&token=${data.token}`;
     return this.http.get(url);
   }
+
+ forgetPassword(email:any){
+    const url = this.baseurl+Endpoint.forgetpassword;
+    return this.http.post(url , email);
+  }
+
+   updatePassword(obj:any){
+    const url = this.baseurl+Endpoint.updatePassword;
+    return this.http.post(url , obj);
+  }
+
+profileNameUpdate(obj:any){
+    const url = this.baseurl+Endpoint.updateprofileName;
+    return this.http.post(url , obj);
+  }
+
+
+
+
+
+
 }

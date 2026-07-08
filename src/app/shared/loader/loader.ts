@@ -12,12 +12,12 @@ export class Loader {
 isLoading$: Observable<boolean>;  // ✅ must be Observable
 
   constructor(private loaderService: LoaderService) {
-    this.isLoading$ = this.loaderService.loading$.pipe(tap(value=> console.log('loader observable' , value))); // assign observable
+    this.isLoading$ = this.loaderService.loading$.pipe(tap()); // assign observable
   }
 
   ngOnInit(): void {
   this.isLoading$.subscribe(value => {
-    console.log('Loader state changed:', value);
+    
   });
 }
 }

@@ -38,6 +38,12 @@
   margin-left: 40px;
 }
 
+ .logo .logocircle img{
+     height: 65px;
+     width: auto;
+     border-radius: 10px;
+     margin-right: 5px;
+  }
 .nav-list {
   display: flex;
   align-items: center;
@@ -95,6 +101,9 @@
 @media (min-width: 769px) {
   .nav-item-dropdown:hover .sub-menu {
     display: block;
+  }
+  .logo .logocircle img{
+     display: none;
   }
 }
 
@@ -219,7 +228,7 @@
     align-items: center;
     gap: 15px;
   }
-
+ 
   .logo { 
     order: 1; 
   }
@@ -276,6 +285,7 @@
     padding: 0;
   }
 
+  
   .nav-item-dropdown.mobile-open .sub-menu {
     display: block;
   }
@@ -302,4 +312,6 @@
     right: -10px;
     top: 110%;
   }
+
+
 }
