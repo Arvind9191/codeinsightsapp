@@ -3,20 +3,26 @@ import { inject, Injectable } from '@angular/core';
 import { Endpoint, enviroment } from '../../../environments/environment';
 import { ApiResponse } from '../../models/CommonModel';
 import { ProjectUpdate } from '../../models/projectmodel';
+import { of, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class Projectservices {
+export class ProjectServices {
   private baseurl = enviroment.baseapiurl;
-
+  private GetAllProjectStore:any = null;
   private http = inject(HttpClient);
   constructor() {}
 
 
   GetProjectAll(){
     let url = this.baseurl+Endpoint.projectlist
-    return this.http.get<ApiResponse>(url)
+    if(this.GetAllProjectStore){
+      return of(this.GetAllProjectStore)
+    }else{
+      return this.http.get<ApiResponse>(url).pipe(tap(data=>this.GetAllProjectStore = data))
+    }
+  
   }
 
   GetProjectById(projectId:any){

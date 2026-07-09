@@ -55,13 +55,7 @@ categories = [
 
 
 ngOnInit() {
-  effect(() => {
-    const data = this.globalData.tenantData();
-    if (data) {
-      console.log("Tenant data ready:", data);
-     
-    }
-  });
+  
 }
   onFileSelected(event: any, field: string) {
     const file = event.target.files[0];
@@ -70,13 +64,7 @@ ngOnInit() {
 
   onSubmit() {
 
-    
-    debugger 
-    //const formData = new FormData();
-   
    let  formvalue:any = this.uploadForm.value;
-
-
     let projObj:UploadProjectRequest = {
       title:formvalue.title,
       description:formvalue.description,

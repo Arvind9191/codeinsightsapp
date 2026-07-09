@@ -13,7 +13,7 @@ export const Endpoint={
     forgetpassword:"auth/forgetpassword",
     fileupload:'files/upload',
     download:'files/download/{filename}',
-    projectlist:'api/project',
+    projectlist:'project',
     getprojectbyid:'project/{projectid}',
     updateproject:"project{projectid}",
     deleteproject:"project/{projectid}",

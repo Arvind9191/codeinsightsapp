@@ -1,35 +1,112 @@
-<div class="container-fluid">
-    <section class="hero">
-        <h2>The Code Insights</h2>
-        <p>Explore Latest Hospital Management Projects</p>
+<div class="projects-container">
+
+
+    <section class="title-section">
+        <h2>Explore Our Latest Projects</h2>
+        <p>Browse and Filter Through Our Software Solutions</p>
     </section>
 
-    <div class="project-grid">
-        @for(project of projects1; track project.id){
-        <div class="card">
-            <div class="card-body">
-                <div class="project-card">
-                    <img [src]="project.image" [alt]="project.title" class="project-image">
-                    <div class="project-content">
-                        <h6>{{ project.title }} Hospital</h6>
-                        <p class="technology">
-                            {{ project.technology }}
-                        </p>
-                        <div class="price">
-                            {{ project.price | currency:'INR':'symbol' }}
-                        </div>
-                        <div class="button-group">
-                            <button class="details-btn" (click)="viewDetails(project)">
-                                View Details
-                            </button>
-                            <button class="buy-btn" (click)="buynow(project)">
-                                Buy Now
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section class="filters">
+        <mat-form-field appearance="outline">
+            <mat-label>Search projects</mat-label>
+            <input matInput [(ngModel)]="searchTerm" placeholder="Search projects..."
+                (keypress)="SearchByProjectName()" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Category</mat-label>
+            <mat-select [(value)]="selectedCategory" (selectionChange)="SelectedCategory()">
+                <mat-option value="">All Categories</mat-option>
+                <mat-option *ngFor="let cat of  this.globalData.tenantData().data.cateList" [value]="cat.catName">{{ cat.catName }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <div class="price-filter">
+            <label>Price Range: ₹{{ priceRange.min }} - ₹{{ priceRange.max }}</label>
+
+            <mat-slider min="0" max="10000" step="500" tickInterval="1000">
+                <input matSliderThumb [(ngModel)]="priceRange.max" (valueChange)="searchByFilter()">
+            </mat-slider>
         </div>
-        }
-    </div>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Technology</mat-label>
+            <mat-select [(value)]="selectedTech" (selectionChange)="SelectedTechology()">
+                <mat-option value="">All Technologies</mat-option>
+                <mat-option *ngFor="let tech of technologies" [value]="tech">{{ tech }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Sort By</mat-label>
+            <mat-select [(value)]="sortBy" (selectionChange)="SortedBy()">
+                <!-- <mat-option value="newest">Newest</mat-option> -->
+                <mat-option value="low">Price: Low → High</mat-option>
+                <mat-option value="high">Price: High → Low</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <div class="toggle-buttons">
+            <button mat-button [color]="showFree ? 'primary' : ''" (click)="toggleFree()">Free</button>
+            <button mat-button [color]="showPaid ? 'primary' : ''" (click)="togglePaid()">Paid</button>
+        </div>
+    </section>
+
+    <section class="projects-grid">
+        <div class="grid-wrapper">
+
+
+            <mat-grid-list [cols]="gridCols" rowHeight="420px" gutterSize="5px">
+                <mat-grid-tile *ngFor="let project of pagedProjects">
+                    <mat-card class="project-card">
+                        <div class="card-image">
+                            <img mat-card-image
+                                [src]="project.imagePath"
+                                alt="{{ project.title }}" />
+                        </div>
+
+                        <mat-card-header>
+                            <mat-card-title>{{ project.title }}</mat-card-title>
+                            <mat-card-subtitle>{{ project.categoryName }}</mat-card-subtitle>
+                        </mat-card-header>
+
+                        <mat-card-content>
+                            <p class="tech">{{ project.technology }}</p>
+                            <!-- Pricing Section -->
+                            <div class="price-section">
+                                <span class="original-price" *ngIf="project.originalPrice">
+                                    ₹{{ project.originalPrice }}
+                                </span>
+                                <span class="discounted-price" *ngIf="project.price > 0">
+                                    ₹{{ project.price }}
+                                </span>
+                                <span class="free-label" *ngIf="project.price === 0">
+                                    Free
+                                </span>
+                            </div>
+                        </mat-card-content>
+
+                        <mat-card-actions class="card-actions">
+                            <button mat-stroked-button color="primary">View Details</button>
+
+
+                            @if (project.price==0) {
+                            <button mat-flat-button color="accent">Download</button>
+                            }@else {
+                            <button mat-flat-button color="accent">Buy Now</button>
+                            }
+
+                        </mat-card-actions>
+                    </mat-card>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </div>
+
+        <!-- Paginator -->
+        <div class="paginator-wrapper">
+            <mat-paginator [length]="filteredProjects.length" [pageSize]="pageSize" [pageSizeOptions]="[3, 6, 9]"
+                (page)="onPageChange($event)">
+            </mat-paginator>
+        </div>
+    </section>
 </div>
