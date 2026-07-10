@@ -17,7 +17,7 @@ import {
   MatDialogRef,
 } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
-import { Projectservices } from '../../../core/apiservices/projectservices';
+import { ProjectServices } from '../../../core/apiservices/projectservices';
 import { AuthServices } from '../../../core/apiservices/AuthServices';
 
 @Component({
@@ -33,7 +33,7 @@ export class SignUp {
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<Login>,
     private dialog: MatDialog,
-    private proservice: Projectservices,
+    private proservice: ProjectServices,
   ) {
     this.signupForm = this.fb.group({
       firstName: ['', Validators.required, Validators.minLength(3)],

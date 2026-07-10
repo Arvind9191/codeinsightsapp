@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Globdata } from '../../../../shared/globledata/globdata';
+import { ApiResponse, UploadProjectRequest } from '../../../../models/CommonModel';
+import { FileServices } from '../../../../core/apiservices/fileservice';
 
 @Component({
   selector: 'app-uploadproject',
@@ -9,22 +12,10 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class Uploadproject {
 
-
+ fileService:FileServices = inject(FileServices)
  uploadForm: FormGroup;
   techOptions: string[] = ['Angular', 'React', 'Vue', 'Node.js', 'C#', 'Java', 'Python', 'SQL'];
-//   selectedFiles: { [key: string]: File | null } = {
-//   projectfile: null,
-//   imagefile: null,
-//   projectReport: null
-// };
-
-// onFileSelected(event: any, field: string) {
-//   const file = event.target.files[0];
-//   if (file) {
-//     this.selectedFiles[field] = file;
-//     console.log(`${field} selected:`, file.name);
-//   }
-// }
+   globalData = inject(Globdata)
 categories = [
   { id: 'edu', name: 'Education Project' },
   { id: 'ecom', name: 'E-Commerce Project' },
@@ -40,6 +31,14 @@ categories = [
     projectReport: null
   };
 
+
+
+
+
+
+
+
+
   constructor(private fb: FormBuilder) {
     this.uploadForm = this.fb.group({
       categoryId: [''],
@@ -53,26 +52,39 @@ categories = [
     });
   }
 
+
+
+ngOnInit() {
+  
+}
   onFileSelected(event: any, field: string) {
     const file = event.target.files[0];
     this.selectedFiles[field] = file;
   }
 
   onSubmit() {
-    const formData = new FormData();
-    Object.keys(this.uploadForm.value).forEach(key => {
-      formData.append(key, this.uploadForm.value[key]);
-    });
 
-    // Append files
-    Object.keys(this.selectedFiles).forEach(key => {
-      if (this.selectedFiles[key]) {
-        formData.append(key, this.selectedFiles[key] as File);
-      }
-    });
+   let  formvalue:any = this.uploadForm.value;
+    let projObj:UploadProjectRequest = {
+      title:formvalue.title,
+      description:formvalue.description,
+      categoryId:formvalue.categoryId,
+      paymentPageUrl:formvalue.paymentPageUrl,
+      setupVideoUrl:formvalue.setupVideoUrl,
+      price:formvalue.price,
+      aboutVideoUrl:formvalue.aboutVideoUrl,
+      technologies:formvalue.technologies
+    }
 
-    // TODO: Call your API endpoint /api/Files/upload
-    console.log('FormData ready to send:', formData);
+    if(this.selectedFiles["projectfile"]!=null && this.selectedFiles["imagefile"] &&  this.selectedFiles["projectReport"]){
+
+    this.fileService.uploadProject(projObj , this.selectedFiles["projectfile"] , this.selectedFiles["imagefile"] ,  this.selectedFiles["projectReport"]).subscribe((res:ApiResponse)=>{
+      console.log(res)
+    })
+    }else{
+      alert("Please select all file")
+    }
+
   }
 
 }

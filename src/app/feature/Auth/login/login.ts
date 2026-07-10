@@ -53,6 +53,7 @@ export class Login {
          this.globdata.userdata.set(res)
          this.shared.loginRes.set(res)
            this.cookie.setCookie(res)
+           localStorage.setItem('userdetails' , JSON.stringify(res))
          this.authService.login()
         //  this.toster.success("Login Successfully")
 

@@ -14,8 +14,8 @@
                     <mat-form-field appearance="outline">
                         <mat-label>Category</mat-label>
                         <mat-select formControlName="categoryId">
-                            <mat-option *ngFor="let cat of categories" [value]="cat.id">
-                                {{ cat.name }}
+                            <mat-option *ngFor="let cat of  this.globalData.tenantData().data.cateList" [value]="cat.catId">
+                                {{ cat.catName }}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
@@ -60,7 +60,7 @@
                     <mat-form-field appearance="outline" class="full-span">
                         <mat-label>Technologies</mat-label>
                         <mat-select formControlName="technologies" multiple>
-                            <mat-option *ngFor="let tech of techOptions" [value]="tech">{{ tech }}</mat-option>
+                            <mat-option *ngFor="let tech of this.globalData.tenantData().data.techList" [value]="tech.techName">{{ tech.techName }}</mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>

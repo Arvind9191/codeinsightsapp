@@ -9,6 +9,8 @@ import { Home } from '../home/home';
 import { RouterLink } from '@angular/router';
 import { SharedData } from '../sharedData/Data';
 import { ApiResponse } from '../../models/CommonModel';
+import { CommanApi } from '../../core/apiservices/commanapi';
+import { Globdata } from '../globledata/globdata';
 
 @Component({
   selector: 'app-adminmenu',
@@ -20,16 +22,32 @@ export class Adminmenu {
   isMenuOpen = false;
   isProfileOpen = false;
   public shared = inject(SharedData)
-
+public authService = inject(AuthService);
+  public commanApi = inject(CommanApi)
+  public globdata = inject(Globdata)
   isAboutDropdownOpen = false; // Toggles mobile nested menu tracking
-  public authService = inject(AuthService);
   constructor(private elementRef: ElementRef, private dialog: MatDialog) { }
 
 
   
 
   ngOnInit(){
-    
+    debugger
+    var userdata = localStorage.getItem("userdetails")
+    if(userdata!=null){
+     var user:ApiResponse = JSON.parse(userdata)
+      this.shared.loginRes.set(user)
+    }
+
+
+
+     this.commanApi.GetTenantData().subscribe((res:ApiResponse)=>{
+         debugger
+      if(res.statusCode==200){
+        this.globdata.tenantData.set(res)
+      }
+    })
+
   }
   toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;

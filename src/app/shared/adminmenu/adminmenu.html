@@ -1,6 +1,9 @@
  <header class="header">
   <div class="header-container"> 
     <div class="logo">
+      <span class="logocircle">
+      <img src="/codeinsightslogo.png" alt="">
+      </span>
      <a routerLink="home">The Code Insights</a>
     </div> 
     <button class="menu-toggle" (click)="toggleMenu()" aria-label="Toggle navigation">
@@ -19,9 +22,9 @@
     </nav> 
     <div class="right-actions-group">
 
-      @if (this.shared.loginRes().data=='user') {
+      @if (this.shared.loginRes().data.userRole=='user') {
    <a  style="cursor: pointer;" routerLink="./user" class="login-btn" >User Dashboard</a>
-      }@else if (this.shared.loginRes().data=='admin') {
+      }@else if (this.shared.loginRes().data.userRole=='admin') {
    <a  style="cursor: pointer;" routerLink="./admin" class="login-btn" >Admin Dashboard</a>
 
       }@else if (this.shared.loginRes().data=='logout') {
