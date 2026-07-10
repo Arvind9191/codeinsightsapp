@@ -1,0 +1,60 @@
+<section class="testimonials">
+
+    <div class="section-header">
+
+        <span class="section-badge">
+            Testimonials
+        </span>
+
+        <h2>Trusted by Students Across India</h2>
+
+        <p>
+            Thousands of students have successfully completed their
+            academic projects using our premium source code and documentation.
+        </p>
+
+    </div>
+
+    <div class="testimonial-grid">
+
+        <mat-card
+            class="testimonial-card"
+            *ngFor="let item of testimonials">
+
+            <div class="rating">
+
+                <mat-icon>star</mat-icon>
+                <mat-icon>star</mat-icon>
+                <mat-icon>star</mat-icon>
+                <mat-icon>star</mat-icon>
+                <mat-icon>star</mat-icon>
+
+            </div>
+
+            <p class="review">
+                "{{item.review}}"
+            </p>
+
+            <div class="user">
+
+                <img
+                    [src]="item.image"
+                    [alt]="item.name"
+                    alt=""
+                    >
+
+                <div>
+
+                    <h4>{{item.name}}</h4>
+
+                    <span>{{item.designation}}</span>
+
+                </div>
+
+            </div>
+
+        </mat-card>
+
+    </div>
+
+</section>

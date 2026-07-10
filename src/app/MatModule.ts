@@ -29,6 +29,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 @NgModule({
 
     imports: [
+        MatExpansionModule,
         MatGridListModule,
         MatCard,
         MatIcon,
@@ -56,6 +57,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
         MatSliderModule
     ],
     exports: [
+        MatExpansionModule,
         MatGridListModule,
         MatCard,
         MatIcon,
