@@ -23,10 +23,8 @@ export class AdminUser {
   }
 
   applyFilter(event: Event) {
-    debugger
     const filterValue = (event.target as HTMLInputElement).value.trim().toLowerCase();
     this.dataSource.filter = filterValue;
-debugger
     this.dataSource
   }
 

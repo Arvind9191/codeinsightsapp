@@ -12,7 +12,7 @@ export class LatestBlogs {
 blogs = [
 
 {
-    image:'assets/blogs/rag.webp',
+    image:'techIcon/rag.png',
     category:'AI',
     readTime:'8 min',
     date:'12 Jul 2026',
@@ -21,7 +21,7 @@ blogs = [
 },
 
 {
-    image:'assets/blogs/jwt.webp',
+    image:'techIcon/jwt.png',
     category:'.NET',
     readTime:'10 min',
     date:'10 Jul 2026',
@@ -30,7 +30,7 @@ blogs = [
 },
 
 {
-    image:'assets/blogs/angular.webp',
+    image:'techIcon/ad.png',
     category:'Angular',
     readTime:'12 min',
     date:'08 Jul 2026',
@@ -39,7 +39,7 @@ blogs = [
 },
 
 {
-    image:'assets/blogs/sql.webp',
+    image:'techIcon/sqlblog.png',
     category:'SQL',
     readTime:'7 min',
     date:'05 Jul 2026',
@@ -48,7 +48,7 @@ blogs = [
 },
 
 {
-    image:'assets/blogs/clean.webp',
+    image:'techIcon/cleanarc.png',
     category:'Architecture',
     readTime:'15 min',
     date:'01 Jul 2026',
@@ -57,7 +57,7 @@ blogs = [
 },
 
 {
-    image:'assets/blogs/project.webp',
+    image:'techIcon/finalyear.png',
     category:'Career',
     readTime:'6 min',
     date:'28 Jun 2026',
