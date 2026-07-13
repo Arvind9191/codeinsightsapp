@@ -313,5 +313,15 @@
     top: 110%;
   }
 
+.nav-list a {
+  color: #555;
+  text-decoration: none;
+  padding: 8px 12px;
+}
 
+.nav-list a.active {
+  color: #1976d2; /* your active color */
+  font-weight: bold;
+  border-bottom: 2px solid #1976d2;
+}
 }

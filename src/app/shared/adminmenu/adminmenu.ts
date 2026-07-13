@@ -6,15 +6,16 @@ import { AuthService } from '../../core/Auth/auth-service';
 import { Contactus } from '../../feature/contactus/contactus';
 import { Projectlist } from '../../feature/projectlist/projectlist';
 import { Home } from '../home/home';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { SharedData } from '../sharedData/Data';
 import { ApiResponse } from '../../models/CommonModel';
 import { CommanApi } from '../../core/apiservices/commanapi';
 import { Globdata } from '../globledata/globdata';
+import { Cookies } from '../../core/Auth/cookie.servcie';
 
 @Component({
   selector: 'app-adminmenu',
-  imports: [RouterLink],
+  imports: [RouterLink ,RouterLinkActive],
   templateUrl: './adminmenu.html',
   styleUrl: './adminmenu.css',
 })
@@ -25,6 +26,7 @@ export class Adminmenu {
 public authService = inject(AuthService);
   public commanApi = inject(CommanApi)
   public globdata = inject(Globdata)
+  public cookie = inject(Cookies)
   isAboutDropdownOpen = false; // Toggles mobile nested menu tracking
   constructor(private elementRef: ElementRef, private dialog: MatDialog) { }
 
@@ -33,7 +35,13 @@ public authService = inject(AuthService);
 
   ngOnInit(){
     debugger
-    var userdata = localStorage.getItem("userdetails")
+
+    let isLogin = localStorage.getItem('login')?? ""
+   
+    if(isLogin==""){
+           localStorage.removeItem("userdetails")
+    }
+   var userdata = localStorage.getItem("userdetails")??null
     if(userdata!=null){
      var user:ApiResponse = JSON.parse(userdata)
       this.shared.loginRes.set(user)

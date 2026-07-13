@@ -58,10 +58,11 @@ export class Cookies {
                    let userType:any = 'logout'
                     if(login.role=='user' && params.includes('/user')){
                         islogin= true
-                         userType = JSON.stringify(localStorage.getItem("userdetails"))
+
+                         userType = JSON.parse(localStorage.getItem("userdetails")??"")
                     }else if(login.role=='admin' && params.includes('/admin')){
                          islogin = true
-                        userType = JSON.stringify(localStorage.getItem("userdetails"))
+                        userType = JSON.parse(localStorage.getItem("userdetails")??"")
                     }else{
                         userType = 'logout'
                         islogin =false;

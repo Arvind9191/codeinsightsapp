@@ -14,8 +14,8 @@
  
     <nav class="nav-menu" [class.active]="isMenuOpen">
       <ul class="nav-list">         
-         <li><a routerLink="/home" class="nav-link">Home</a></li>
-        <li><a routerLink="/projects" class="nav-link">Projects</a></li>
+         <li><a routerLink="/home" routerLinkActive="active" class="nav-link">Home</a></li>
+        <li><a routerLink="/projects" routerLinkActive="active" class="nav-link">Projects</a></li>
        
        <!--  <li><a routerLink="uploadproject" class="nav-link">Upload Project</a></li> -->
       </ul>
@@ -23,9 +23,9 @@
     <div class="right-actions-group">
 
       @if (this.shared.loginRes().data.userRole=='user') {
-   <a  style="cursor: pointer;" routerLink="./user" class="login-btn" >User Dashboard</a>
+   <a  style="cursor: pointer;" routerLink="./user"  routerLinkActive="active" class="login-btn" >User Dashboard</a>
       }@else if (this.shared.loginRes().data.userRole=='admin') {
-   <a  style="cursor: pointer;" routerLink="./admin" class="login-btn" >Admin Dashboard</a>
+   <a  style="cursor: pointer;" routerLink="./admin" routerLinkActive="active" class="login-btn" >Admin Dashboard</a>
 
       }@else if (this.shared.loginRes().data=='logout') {
   
