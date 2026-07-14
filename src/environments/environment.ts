@@ -17,6 +17,10 @@ export const Endpoint={
     getprojectbyid:'project/{projectid}',
     updateproject:"project{projectid}",
     deleteproject:"project/{projectid}",
+    getallUser:"Admin/getalluser",
+    updatemsgstatus:"Admin/updatestatus",
+    getmsg:"tenant/getmsg",
+    savemsg:"tenant/savemsg",
     tenant:"tenant"
 }
 

@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, inject, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { ViewInquiryDialog } from './view-inquiry-dialog/view-inquiry-dialog';
+import { CommanApi } from '../../../../core/apiservices/commanapi';
 
 @Component({
   selector: 'app-user-inquiry',
@@ -11,12 +12,12 @@ import { ViewInquiryDialog } from './view-inquiry-dialog/view-inquiry-dialog';
   templateUrl: './user-inquiry.html',
   styleUrl: './user-inquiry.css',
 })
-export class UserInquiry { 
+export class UserInquiry {
 
-  constructor(private dialog: MatDialog) {}
-  displayedColumns: string[] = ['email','reason','message','date','status','actions'];
+  constructor(private dialog: MatDialog) { }
+  displayedColumns: string[] = ['fullname', 'email', 'reason', 'message', 'date', 'status', 'actions'];
   dataSource = new MatTableDataSource(INQUIRY_DATA);
-
+  private apis = inject(CommanApi);
   reasons: string[] = [
     'Project Running Issue',
     'Project Setup Issue',
@@ -32,7 +33,30 @@ export class UserInquiry {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  ngOnInit() {}
+  ngOnInit() {
+
+    this.apis.GetMsg(10, 1).subscribe(res => {
+      let inquerydata = []
+      debugger
+
+      res.data.forEach((ele: any) => {
+        let obj = {
+          fullname:ele.fullName,
+          email: ele.email,
+          reason: ele.reason,
+          message: ele.message,
+          date: new Date(ele.createdAt),
+           status: ele.status
+        }
+        inquerydata.push(obj)
+         this.dataSource = new MatTableDataSource(inquerydata)
+      });
+    })
+
+
+
+
+  }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -40,11 +64,11 @@ export class UserInquiry {
   }
 
   viewInquiry(row: any) {
-  this.dialog.open(ViewInquiryDialog, {
-    width: '400px',
-    data: row
-  });
-}
+    this.dialog.open(ViewInquiryDialog, {
+      width: '400px',
+      data: row
+    });
+  }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value.trim().toLowerCase();
     this.dataSource.filter = filterValue;
@@ -61,7 +85,7 @@ export class UserInquiry {
     this.dataSource.filter = date;
   }
 
- 
+
 
   markResolved(row: any) {
     row.status = 'Resolved';
@@ -78,7 +102,7 @@ export class UserInquiry {
 }
 
 const INQUIRY_DATA = [
-  { email:'user1@example.com', reason:'Project Running Issue', message:'App crashes on login', date:new Date('2026-06-25'), status:'Pending' },
-  { email:'user2@example.com', reason:'Payment / Billing Issue', message:'Invoice not received', date:new Date('2026-06-26'), status:'Pending' },
-  { email:'user3@example.com', reason:'Bug / Error Report', message:'Error on dashboard', date:new Date('2026-06-27'), status:'Resolved' }
+  { fullname: "Krishna Mohan", email: 'user1@example.com', reason: 'Project Running Issue', message: 'App crashes on login', date: new Date('2026-06-25'), status: 'Pending' },
+  { fullname: "Krishna Mohan", email: 'user2@example.com', reason: 'Payment / Billing Issue', message: 'Invoice not received', date: new Date('2026-06-26'), status: 'Pending' },
+  { fullname: "Krishna Mohan", email: 'user3@example.com', reason: 'Bug / Error Report', message: 'Error on dashboard', date: new Date('2026-06-27'), status: 'Resolved' }
 ];

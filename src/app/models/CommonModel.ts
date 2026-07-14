@@ -14,3 +14,10 @@ export interface UploadProjectRequest {
   setupVideoUrl: string;
   technologies: string[];      // array of strings
 }
+
+export interface UsersMessage {
+  fullName: string;
+  email: string;
+  reason: string;
+  message: string;
+}

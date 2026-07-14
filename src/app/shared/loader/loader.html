@@ -1,7 +1,7 @@
 <!-- loader.component.html -->
 <div class="loader" [class.show]="isLoading$ | async">
-<div class="spinner-container">
-    <!-- SVG with 12 evenly distributed rounded spokes -->
+<!-- <div class="spinner-container">
+
    <svg class="simple-spinner" viewBox="0 0 100 100" full="none" stroke-width="4">
   <line x1="50" y1="15" x2="50" y2="30" stroke="#007bff" />
   <line x1="50" y1="15" x2="50" y2="30" stroke="#007bff" transform="rotate(30 50 50)" />
@@ -17,5 +17,17 @@
   <line x1="50" y1="15" x2="50" y2="30" stroke="#007bff" transform="rotate(330 50 50)" />
 </svg>
     <div class="loading-text">Loading...</div>
-  </div>
+  </div> -->
+
+ <div class="spinner-container">
+  <svg class="simple-spinner" viewBox="0 0 100 100" stroke-width="4">
+    <line x1="50" y1="15" x2="50" y2="30" />
+    <line x1="50" y1="15" x2="50" y2="30" transform="rotate(30 50 50)" />
+    <line x1="50" y1="15" x2="50" y2="30" transform="rotate(60 50 50)" />
+    <line x1="50" y1="15" x2="50" y2="30" transform="rotate(90 50 50)" />
+    <!-- ...rest of lines -->
+  </svg>
+  <div class="loading-text">Loading...</div>
+</div>
+
 </div>
