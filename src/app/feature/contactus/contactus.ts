@@ -31,23 +31,23 @@ export class Contactus {
   }
 
   onSubmit(): void {
-    alert();
+   debugger
     if (this.contactForm.invalid) {
       this.contactForm.markAllAsTouched();
       return;
     }
 
     let obj: UsersMessage = {
-      fullName: this.contactForm.value.fullName,
+      fullName: this.contactForm.value.name,
       email: this.contactForm.value.email,
-      reason: this.contactForm.value.reason,
+      reason: this.contactForm.value.subject,
       message: this.contactForm.value.message
     }
     this.isSubmitting = true;
     this.submitStatus = 'idle';
 
 this.apis.SaveMsg(obj).subscribe(res=>{
-      console.log(res)
+      alert(res.message)
       this.isSubmitting = false;
       this.submitStatus = 'success';
       this.contactForm.reset({ subject: 'general' });
